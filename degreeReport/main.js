@@ -50,7 +50,7 @@ var totalCredits = 0;
 for (var i = 0; i < eecsCourses.length; i++) {
   var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
   var gradeLetter = eecsGrades[i];
-  var courseCredit = courseName.substr(courseName.length - 4); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECS1XXX3.00
+  var courseCredit = courseName.substr(courseName.length - 4); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
 
   var gradePoint = gradeLetterToNumber(gradeLetter);
 
