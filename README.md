@@ -6,7 +6,7 @@ An extension that calculates the eecs gpa in degree progress report page in the 
 
 ## setup
 - Download folder degreeProgressReport with its files
-- Add the files as a browser extension; Go to extensions on browser, enable dev tools and click "load unpack" then select the degreeProgess file.
+- Add the files as a browser extension; In the browser go to extensions, enable dev tools and click "load unpack" then select the degreeProgess file.
 - In the manifest.json file,  you will find "matches": ["https://w6prod.sis.yorku.ca/yda/student"] . Replace the url in the manifest.json file  with  the url in       your  degree report page
 - refresh the extension
 - enable the extension as if might be set off and not appear next to extension icon.
