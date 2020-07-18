@@ -10,7 +10,7 @@ An extension that calculates the eecs gpa in degree progress report page in the 
 - In the manifest.json file,  you will find "matches": ["https://w6prod.sis.yorku.ca/yda/student"] . Replace the url in the manifest.json file  with  the url in       your  degree report page
 - refresh the extension
 - enable the extension as if might be set off and not appear next to extension icon.
-- To see eecs gpa, go to your degree progress report with grades and check the console! You can now see your eecs gpa whenever you need to even if grade report    updates
+- To see eecs gpa, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with  the page showing the grades and  check the console! You can now see your eecs gpa whenever you need to even if grade report    updates
 
 ### To-do:
 Allow a pop up window to display eecs gpa.
