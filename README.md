@@ -11,6 +11,7 @@ An extension that calculates the eecs gpa in degree progress report page in the 
 - refresh the extension
 - enable the extension as if might be set off and not appear next to extension icon.
 - To see eecs gpa, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with  the page showing the grades and  check the console! You can now see your eecs gpa whenever you need to even if grade report    updates
+-  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage **
 
 ### To-do:
 Allow a pop up window to display eecs gpa.
