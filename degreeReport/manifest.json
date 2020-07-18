@@ -1,0 +1,21 @@
+{
+"name": "bear",
+"version": "1.0",
+"manifest_version": 2,
+"content_scripts": [
+{
+
+    "matches": ["https://w6prod.sis.yorku.ca/yda/student"],
+    "js": ["main.js"]
+}
+
+],
+"browser_action": {
+
+    "default_popup": "popup.html",
+    "default_title" : "eecs calculator"
+}
+
+
+
+}
