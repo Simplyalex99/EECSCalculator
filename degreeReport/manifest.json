@@ -13,8 +13,8 @@
 "browser_action": {
 
     "default_popup": "popup.html",
-    "default_title" : "eecs calculator",
-    "default_icon": "gpa_icon.png"
+    "default_title" : "eecs calculator"
+    
 }
 
 
