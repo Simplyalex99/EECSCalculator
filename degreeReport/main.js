@@ -1,14 +1,14 @@
 var tables = document.querySelectorAll("table"); //gets an array of table elements
 var lastTable = tables[tables.length - 1]; // retrieves last table
 
-var tbody = lastTable.getElementsByTagName("tbody")[0];
+var tbody = lastTable.getElementsByTagName("tbody")[0]; // gets tbody element with nested  tb and td elements inside
 var size = tbody.querySelectorAll("tr").length;
-var td = [];
+var td = []; // array of td elements
 var grades = [];
 
 /*@desc: copies all courses and their corresponding grade  in tbody to td and grades array respectively.
          td elements are nested inside tbody array. Only the 2nd td element gets added and 3rd td element 
-         respectively to td and grades array. That is where the grades letter are and course name.
+         to td and grades array respectively. That is where the grades letter are and course name.
          */
 //@param: @size is decreased by 1 so as to not include the first element in tbody array
 
@@ -52,7 +52,7 @@ var totalCredits = 0;
 for (var i = 0; i < eecsCourses.length; i++) {
   var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
   var gradeLetter = eecsGrades[i];
-  var courseCredit = courseName.substr(courseName.length - 4); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECS1XXX3.00
+  var courseCredit = courseName.substr(courseName.length - 4); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
 
   var gradePoint = gradeLetterToNumber(gradeLetter);
 
