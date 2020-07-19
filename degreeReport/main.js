@@ -31,6 +31,8 @@ const COURSE_CODE = "LE/EECS";
 and  adds its  corresponding grade letter  to eecsGrades array.
 @note: substring is used to only compare the course code then if it is an eecs course the whole course name gets added.
 */
+var eecsDictionary = new Map();//key courseName and value is grade of the course
+
 for (var i = 0; i < td.length; i++) {
   var temp = td[i].innerHTML.substring(0, 7);
   var gradeLetter = grades[i].innerHTML;
