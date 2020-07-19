@@ -1,13 +1,6 @@
-@font-face {
-  font-family: "Gingham";
 
-  src: url("./Gingham/Gingham.woff2") format("woff2");
-}
 .titlePage {
-  font-family: "Gingham";
-  font-variation-settings: "wght" 300, "wdth" 100;
-
-  font-stretch: wider;
+ 
 }
 
 .input {

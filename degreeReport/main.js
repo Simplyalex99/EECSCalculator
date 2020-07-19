@@ -1,9 +1,27 @@
-
+/**
+ * 
+ *  Table sizes not consistent for everyone.
+ *  DPR works fine just not grade yorku which is gabbing the last table withdrawl and not big table.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 chrome.runtime.onMessage.addListener((request) => {
   var tables = document.querySelectorAll("table"); //gets an array of table elements
-  var lastTable = tables[tables.length - 1]; // retrieves last table
+  var lastTable ;
+  if(tables.length <= 8){
 
+lastTable = tables[6];
+
+
+  }
+  else{
+   lastTable = tables[tables.length - 1]; // retrieves last table
+  }
   var tbody = lastTable.getElementsByTagName("tbody")[0]; // gets tbody element with nested  tb and td elements inside
   var size = tbody.querySelectorAll("tr").length;
   var courses = []; // array of td elements
@@ -41,10 +59,26 @@ chrome.runtime.onMessage.addListener((request) => {
   var eecsGrades = [];
   var index = 0;
   const COURSE_CODE = request.toUpperCase().replace(/ /g, "");
-  console.log(COURSE_CODE);
-  console.log(courseDictionary);
 
-  if (!courseDictionary.has(COURSE_CODE)) {
+  /*@desc: Creates same course code but without "/" character 
+  @note: Due to webpage having different course code format, must check for both options for consistency
+  */
+  
+  var temporaryCourseCode = "";
+  for(var i=0;i < t.length;i++){
+    
+    if (COURSE_CODE.charAt(i) != "/"){
+      
+      temporaryCourseCode+= COURSE_CODE.charAt(i);
+      
+    }
+    
+  }
+
+  var gradesAndCourses = [];
+  var count = 0;
+
+  if (!(courseDictionary.has(COURSE_CODE) || courseDictionary.has(temporaryCourseCode))) {
     alert("Invalid response. Check spelling of course name");
   } else {
     /*@desc: Copies all elements in td array that have the course code LE/EECS to eecsCourses array
@@ -55,7 +89,7 @@ chrome.runtime.onMessage.addListener((request) => {
     for (var i = 0; i < courses.length; i++) {
       temp = courses[i].innerHTML.substring(0, 7).replace(/ /g, "");
       var gradeLetter = grades[i].innerHTML;
-      if (temp === COURSE_CODE) {
+      if (temp === COURSE_CODE || temp=== temporaryCourseCode) {
         temp = courses[i].innerHTML;
         eecsCourses[index] = temp;
         eecsGrades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
@@ -65,17 +99,32 @@ chrome.runtime.onMessage.addListener((request) => {
 
     //@desc: calculates eecs grade
 
+   
+    var startPoint = 0;
+    var endPoint = 0;
+if(isNaN(eecsCourses[0].substr(eecsCourses[0].length-4))){
+startPoint = 5;
+endPoint = 1;
+
+} else{
+startPoint = 4;
+endPoint = 0;
+
+}
+
     var eecsGpa = 0;
     var totalCredits = 0;
 
     for (var i = 0; i < eecsCourses.length; i++) {
       var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
       var gradeLetter = eecsGrades[i];
-      var courseCredit = courseName.substr(courseName.length - 4); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
+
+      var courseCredit = courseName.substring(startPoint,courseName.length - endPoint); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
 
       var gradePoint = gradeLetterToNumber(gradeLetter);
 
       if (gradePoint >= 0) {
+        gradesAndCourses[count++] = eecsCourses[i] + " " + eecsGrades[i] + " ";
         var creditValue = parseInt(courseCredit);
         var result = gradePoint * creditValue;
         eecsGpa += result;
@@ -84,8 +133,7 @@ chrome.runtime.onMessage.addListener((request) => {
     }
     //@desc: Outputs eecs gpa to console and formula used is : total points/total credits
     eecsGpa = (eecsGpa / totalCredits).toFixed(2);
-
-    alert(COURSE_CODE + " gpa: " + eecsGpa + "/n courses: " + eecsCourses);
+    alert(COURSE_CODE + " gpa: " + eecsGpa +  " total credits: " + totalCredits + "courses: \n"+ gradesAndCourses);
 
     //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
 
