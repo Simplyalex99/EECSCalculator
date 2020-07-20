@@ -1,14 +1,4 @@
-/**
- * 
- *  Table sizes not consistent for everyone.
- *  DPR works fine just not grade yorku which is gabbing the last table withdrawl and not big table.
- * 
- * 
- * 
- * 
- * 
- * 
- */
+
 
 chrome.runtime.onMessage.addListener((request) => {
   var tables = document.querySelectorAll("table"); //gets an array of table elements

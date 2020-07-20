@@ -1,16 +1,17 @@
 # EECSCalculator
 
 ## Description
-An extension that calculates the eecs gpa in degree progress report page in the developer tools console
+An extension that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page
+![]https://user-images.githubusercontent.com/42325851/87889196-63b67700-c9fe-11ea-9305-edde08ad17d1.png
 
 
 ## setup
-- Download folder degreeProgressReport with its files
+- Download the folder degreeProgressReport with its files (You can please find an arrow in the green bar "Code" subheading that has an option to download via zip)
 - Add the files as a browser extension; In the browser go to extensions, enable dev tools and click "load unpack" then select the degreeProgess file.
-- refresh the extension if you add any changes to the files
+- Refresh the extension if you add any changes to the files
 - enable the extension as if might be set off and not appear next to extension icon.
-- To see eecs gpa, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with  the page showing the grades and  check the console! You can now see your eecs gpa whenever you need to even if grade report    updates
--  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage**
+- To calculate the gpa of certain course faculty, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with the page showing the grades or (https://myonlineservices.students.yorku.ca/ in course and grade list section) and enter your choice by clicking on the "eecs calculator " extension! You can now see your eecs gpa whenever you need to!
+-  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage. Must also be on the webpage specified in the last step to calculate your choice of gpa for a faculty**
 
 ### To-do:
-Allow a pop up window to display eecs gpa.
+Improve the structure of the code and visual aspects of the extension's UI.
