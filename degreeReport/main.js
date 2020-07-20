@@ -107,7 +107,7 @@ var totalGPAPoints =0;
       var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
       var gradeLetter = eecsGrades[i];
 
-      var courseCredit = courseName.substring(startPoint,courseName.length - endPoint); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
+      var courseCredit = courseName.substring(courseName.length-startPoint,courseName.length - endPoint); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
 
       var gradePoint = gradeLetterToNumber(gradeLetter);
 
