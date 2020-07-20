@@ -68,9 +68,7 @@ lastTable = tables[6];
   var gradesAndCourses = [];
   var count = 0;
 
-  if (!(courseDictionary.has(COURSE_CODE) || courseDictionary.has(temporaryCourseCode))) {
-    alert("Invalid response. Check spelling of course name");
-  } else {
+  if (courseDictionary.has(COURSE_CODE) || courseDictionary.has(temporaryCourseCode)){
     /*@desc: Copies all elements in td array that have the course code LE/EECS to eecsCourses array
   and  adds its  corresponding grade letter  to eecsGrades array.
   @note: substring is used to only compare the course code then if it is an eecs course the whole course name gets added.
@@ -104,7 +102,7 @@ endPoint = 0;
 
     var eecsGpa = 0;
     var totalCredits = 0;
-
+var totalGPAPoints =0;
     for (var i = 0; i < eecsCourses.length; i++) {
       var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
       var gradeLetter = eecsGrades[i];
@@ -121,9 +119,10 @@ endPoint = 0;
         totalCredits += creditValue;
       }
     }
+    totalGPAPoints = eecsGpa;
     //@desc: Outputs eecs gpa to console and formula used is : total points/total credits
     eecsGpa = (eecsGpa / totalCredits).toFixed(2);
-    alert(COURSE_CODE + " gpa: " + eecsGpa +  " total credits: " + totalCredits + "courses: \n"+ gradesAndCourses);
+    alert(COURSE_CODE + " gpa: " + eecsGpa +  " total credits: " + totalCredits +  + " total grade points: " + totalGPAPoints +" courses: \n"+ gradesAndCourses);
 
     //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
 
@@ -142,4 +141,7 @@ endPoint = 0;
       else return -1;
     }
   }
+  else   {
+    alert("Invalid response. Check spelling of course name");
+  } 
 });
