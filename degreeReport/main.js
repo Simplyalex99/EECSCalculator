@@ -32,9 +32,9 @@ chrome.runtime.onMessage.addListener((request) => {
     courseDictionary.add(courseCodeOnly);
   }
 
-  var eecsCourses = [];
+  var course_code_courses = [];
 
-  var eecsGrades = [];
+  var course_code_grades = [];
   var index = 0;
   var temp;
   const COURSE_CODE = request.toUpperCase().replace(/ /g, "");
@@ -67,8 +67,8 @@ chrome.runtime.onMessage.addListener((request) => {
       var gradeLetter = grades[i].innerHTML;
       if (temp === COURSE_CODE || temp === temporaryCourseCode) {
         temp = courses[i].innerHTML;
-        eecsCourses[index] = temp;
-        eecsGrades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
+        course_code_courses[index] = temp;
+        course_code_grades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
         index++;
       }
     }
@@ -79,7 +79,7 @@ chrome.runtime.onMessage.addListener((request) => {
     var startPoint = 0;
     var endPoint = 0;
 
-    var toBeCompared = eecsCourses[0].replace(/ /g, "");
+    var toBeCompared = course_code_courses[0].replace(/ /g, "");
     if (isNaN(toBeCompared.substr(toBeCompared.length - 4))) {
       startPoint = 5;
       endPoint = 1;
@@ -98,9 +98,9 @@ chrome.runtime.onMessage.addListener((request) => {
     var totalCredits = 0;
     var totalGPAPoints = 0;
  
-    for (var i = 0; i < eecsCourses.length; i++) {
-      var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
-      var gradeLetter = eecsGrades[i];
+    for (var i = 0; i < course_code_courses.length; i++) {
+      var courseName = course_code_courses[i].replace(/ /g, ""); // gets rid of all white spaces
+      var gradeLetter = course_code_grades[i];
 
       var courseCredit = courseName.substring(
         courseName.length - startPoint,
@@ -111,7 +111,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
       if (gradePoint >= 0) {
         gradesAndCourses[count++] =
-          eecsCourses[i] + " grade: " + eecsGrades[i] + " ";
+          course_code_courses[i] + " grade: " + course_code_grades[i] + " ";
         var creditValue = parseInt(courseCredit);
         var result = gradePoint * creditValue;
         eecsGpa += result;
