@@ -1,4 +1,15 @@
+*{
 
+margin: 0;
+padding:0;
+
+}
+.container{
+
+margin: 5px;
+padding: 5px;
+  
+}
 
 
 
@@ -7,24 +18,35 @@
 border-style: none;
 border: 2px solid gray;
 }
+.input-container{
 
+padding-top: 5px;
 
-.submit-btn {
-  background-color: #2196f3;
-  color: white;
-  padding-top: 2px;
-font-family: 'Ubuntu' , sans-serif;
 
 }
 
-.title{
-color: #143774;
+.submit-btn {
+  background-color:#143774;/* #2196f3;*/
+  color: white;
+  
+font-family: 'Ubuntu' , sans-serif;
 
+}
+.title-container{
+
+
+
+}
+.title{
+  padding-left: 10px;
+color: white;
+background-color: #143774;;
 font-family: 'Lora' , serif;
+
 
 
 }
 .btn-container{
 
-    padding-top: 5px;
+    padding-top: 10px;
     }
