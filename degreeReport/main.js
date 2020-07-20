@@ -28,7 +28,7 @@ lastTable = tables[6];
   var start = 0;
   var textInTdElement = temp
     .getElementsByTagName("td")[2]
-    .innerHTML.split(/ /g, "");
+    .innerHTML.replace(/ /g, "");
 
   start = textInTdElement.length > 4 ? 3 : 2; // checks which td has the grade letter depending if site is DPG or gradesYorku
 
@@ -90,7 +90,9 @@ lastTable = tables[6];
    
     var startPoint = 0;
     var endPoint = 0;
-if(isNaN(eecsCourses[0].substr(eecsCourses[0].length-4))){
+    console.log("test string: " + eecsCourses[0].substr(eecsCourses[0].length-4));
+    var toBeCompared = eecsCourses[0].replace(/ /g,"");
+if(isNaN(toBeCompared.substr(toBeCompared.length-4))){
 startPoint = 5;
 endPoint = 1;
 
@@ -106,11 +108,12 @@ var totalGPAPoints =0;
     for (var i = 0; i < eecsCourses.length; i++) {
       var courseName = eecsCourses[i].replace(/ /g, ""); // gets rid of all white spaces
       var gradeLetter = eecsGrades[i];
-
+console.log("gradw letter: " + gradeLetter); // ERROR something else the 3rd table and not last
       var courseCredit = courseName.substring(courseName.length-startPoint,courseName.length - endPoint); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
+console.log("course  credit parse" + courseCredit);
 
       var gradePoint = gradeLetterToNumber(gradeLetter);
-
+console.log("grade point: " + gradePoint);
       if (gradePoint >= 0) {
         gradesAndCourses[count++] = eecsCourses[i] + " " + eecsGrades[i] + " ";
         var creditValue = parseInt(courseCredit);
@@ -122,7 +125,7 @@ var totalGPAPoints =0;
     totalGPAPoints = eecsGpa;
     //@desc: Outputs eecs gpa to console and formula used is : total points/total credits
     eecsGpa = (eecsGpa / totalCredits).toFixed(2);
-    alert(COURSE_CODE + " gpa: " + eecsGpa +  " total credits: " + totalCredits +  + " total grade points: " + totalGPAPoints +" courses: \n"+ gradesAndCourses);
+    alert(COURSE_CODE + " gpa: " + eecsGpa +  " total credits: " + totalCredits +   "\ntotal grade points: " + totalGPAPoints +" courses: \n"+ gradesAndCourses);
 
     //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
 
