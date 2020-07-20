@@ -1,4 +1,4 @@
-# EECSCalculator
+# GPACalculator
 
 ## Description
 An extension that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page
