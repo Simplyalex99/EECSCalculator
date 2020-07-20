@@ -2,7 +2,7 @@
 
 ## Description
 An extension that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page
-![]https://user-images.githubusercontent.com/42325851/87889196-63b67700-c9fe-11ea-9305-edde08ad17d1.png
+![](calculator.png)
 
 
 ## setup
