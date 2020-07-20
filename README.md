@@ -16,9 +16,9 @@ An extension that calculates culminative gpa of one's query in  the degree progr
 
 - Make sure to save then refresh the extension anytime changes are made.
 
-- To calculate the gpa of certain course faculty, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with    the page showing the grades or (https://myonlineservices.students.yorku.ca/ in course and grade list section) 
+ To calculate the gpa of certain course faculty, go to your degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) with    the page showing the grades or (https://myonlineservices.students.yorku.ca/ in course and grade list section) 
 
-- Enter your choice by clicking on the "eecs calculator " extension! You can now see your eecs gpa whenever you need to!
+Enter your choice by clicking on the "eecs calculator " extension! You can now see your eecs gpa whenever you need to!
 
 -  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage. Must also be on the webpage specified in the last step to calculate your choice of gpa for a faculty**
 
