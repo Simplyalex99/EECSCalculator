@@ -4,6 +4,7 @@
 An extension that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page
 
 
+
 ## setup
 - Download the folder degreeProgressReport with its files (You can please find an arrow in the green bar "Code" subheading that has an option to download via zip)
 - Add the files as a browser extension; In the browser go to extensions, enable dev tools and click "load unpack" then select the degreeProgess file.
