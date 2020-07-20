@@ -1,9 +1,14 @@
 
-.titlePage {
- 
-}
 
-.input {
+.submit-btn {
   background-color: #2196f3;
   color: white;
+  padding-top: 2px;
+
 }
+
+
+.btn-container{
+
+    padding-top: 5px;
+    }
