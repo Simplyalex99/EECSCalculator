@@ -55,7 +55,7 @@ lastTable = tables[6];
   */
   
   var temporaryCourseCode = "";
-  for(var i=0;i < t.length;i++){
+  for(var i=0;i < COURSE_CODE.length;i++){
     
     if (COURSE_CODE.charAt(i) != "/"){
       
