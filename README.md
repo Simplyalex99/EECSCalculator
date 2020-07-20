@@ -24,3 +24,6 @@ Enter your choice by clicking on the "eecs calculator " extension! You can now s
 
 ### To-do:
 Improve the structure of the code and visual aspects of the extension's UI.
+
+### Special thanks:
+To all those who helped!
