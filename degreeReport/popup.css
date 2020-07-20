@@ -1,13 +1,29 @@
 
 
+
+
+.input{
+  background: #f8f8f8;
+border-style: none;
+border: 2px solid gray;
+}
+
+
 .submit-btn {
   background-color: #2196f3;
   color: white;
   padding-top: 2px;
+font-family: 'Ubuntu' , sans-serif;
 
 }
 
+.title{
+color: #143774;
 
+font-family: 'Lora' , serif;
+
+
+}
 .btn-container{
 
     padding-top: 5px;
