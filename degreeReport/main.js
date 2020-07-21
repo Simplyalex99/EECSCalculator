@@ -17,12 +17,10 @@ chrome.runtime.onMessage.addListener((request) => {
   var grades = [];
   var courseDictionary = new Set(); // stores all unique courses to validate user-input
 
-  /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and grades array respectively.
+  /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
            Also store all unique courses code (Department and Faculty) in @courseDictionary 
-  
-  
   */ 
-  //@param: @size is decreased by 1 so as to not include the first element in tbody array
+  //@param: @size is decreased by 1 so as to not include the first element in @tbody array
 
   for (var i = 0; i < size - 1; i++) {
     var tr;
@@ -150,7 +148,7 @@ chrome.runtime.onMessage.addListener((request) => {
       else if (gradeLetter === "D") return 2;
       else if (gradeLetter === "E") return 1;
       else if (gradeLetter === "F") return 0;
-      //Case if course grade is P or RLF
+      //Case if course grade is P or RLF or no grade
       else return -1;
     }
   } else {
