@@ -1,7 +1,9 @@
 # GPACalculator
 
+[Description] (## Description)
+
 ## Description
-An extension for yorku students that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page. For example, entering LE/EECS will give you the overall gpa for all eecs courses including the courses  and grades corresponding to that faculty as well as total grade point and credits.
+An extension for yorku students that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page. 
 
 ![](finalUIimage.png)
 
@@ -22,6 +24,8 @@ Enter your choice by clicking on the "eecs calculator " extension! You can now s
 
 -  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage. Must also be on the webpage specified in the last step to calculate your choice of gpa for a faculty**
 
+## Demo
+For example, entering LE/EECS will give you the overall gpa for all eecs courses including the courses  and grades corresponding to that faculty as well as total grade point and credits that can be used as a reference.
 
 ### To-do:
 Improve structure of code for maintainability.
