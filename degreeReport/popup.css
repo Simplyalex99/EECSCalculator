@@ -17,39 +17,54 @@ padding: 5px;
 .input{
   background: #f8f8f8;
 border-style: none;
-border: 2px solid gray;
+border: 2px solid lightgray;
 padding: 3px;
+border-radius: 4px;
+font-family: 'Raleway', sans-serif;
 }
+
 .input-container{
 
-padding-top: 5px;
+padding-top: 8px;
 
 
 }
 p{
   font-family: 'Open Sans', sans-serif;
   /* font-family: 'Lora' , serif;*/
-font-size: 16px;
+font-size: 15px;
+padding-bottom: 2px;
 }
 
 .submit-btn {
-  background-color:#143774;/* #2196f3;*/
-  color: white;
+ /*#143774;/* #2196f3;*/
+  color:#143774;/*#DC143C;*/
+background: white;
   padding: 5px 15px;
-font-family: 'Ubuntu' , sans-serif;
+font-family: 'Raleway', sans-serif; /*'Ubuntu' , sans-serif;*/
 
 
+border-color: #143774; /*red ;*/
+border-radius: 6px;
+/*border: 2px solid #DC143C;*/
+}
+.submit-btn:hover{
+  cursor: pointer;
+  background-color:#143774;/* #DC143C;*/
+  color: white;
 }
 .title-container{
 
-
+  background-color: #143774;
+  
 
 }
 .title{
   padding-left: 10px;
 color: white;
-background-color: #143774;;
-font-family: 'Lora' , serif;
+/* #DC143C; ;*/
+/*font-family: 'Lora' , serif;*/
+font-family:  'Open Sans', sans-serif;
 
 
 
