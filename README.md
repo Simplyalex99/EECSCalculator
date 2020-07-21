@@ -3,9 +3,9 @@
 ## About
 * [Description](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#description)
 * [setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
-* [demo] (https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
-* [to-do] (https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
-* [special-thanks] (https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
+* [demo](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
+* [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
+* [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
 An extension for yorku students that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page. 
