@@ -27,7 +27,7 @@ An extension for yorku students that calculates culminative gpa of one's query i
 
 - Click on the gpa calculator extension and then enter your choice. You can now see your gpa of choice whenever you need to!
 
--  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage. Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
+  **Note: If the following error appears on the console "runtime.lastError", refresh the webpage. Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
 ## Demo
 For example, entering LE/EECS will give you the overall gpa for all eecs courses including the courses  and grades corresponding to that faculty as well as total grade point and credits that can be used as a reference.
