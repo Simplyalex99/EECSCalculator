@@ -1,76 +1,56 @@
-*{
-
-margin: 0;
-padding:0;
-
+* {
+  margin: 0;
+  padding: 0;
 }
-.container{
-
-margin: 5px;
-padding: 5px;
-
-  
+.container {
+  margin: 5px;
+  padding: 5px;
 }
 
-
-
-
-.input{
+.input {
   background: #f8f8f8;
-border-style: none;
-border: 2px solid lightgray;
-padding: 3px;
-border-radius: 4px;
-font-family: 'Raleway', sans-serif;
+  border-style: none;
+  border: 2px solid lightgray;
+  padding: 3px;
+  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
 }
 
-.input-container{
-
-padding-top: 8px;
-
-
+.input-container {
+  padding-top: 8px;
 }
-p{
-  font-family: 'Open Sans', sans-serif;
-  /* font-family: 'Lora' , serif;*/
-font-size: 15px;
-padding-bottom: 2px;
+p {
+  font-family: "Open Sans", sans-serif;
+
+  font-size: 15px;
+  padding-bottom: 2px;
 }
 
 .submit-btn {
- /*#143774;/* #2196f3;*/
-  color:#143774;/*#DC143C;*/
-background: white;
+  color: #143774; /*#DC143C; * #2196f3;*/
+  background: white;
   padding: 5px 15px;
-font-family: 'Raleway', sans-serif; /*'Ubuntu' , sans-serif;*/
+  font-family: "Raleway", sans-serif; /*'Ubuntu' , sans-serif;*/
 
-
-border-color: #143774; /*red ;*/
-border-radius: 6px;
-/*border: 2px solid #DC143C;*/
+  border-color: #143774; /*red ;*/
+  border-radius: 6px;
 }
-.submit-btn:hover{
+.submit-btn:hover {
   cursor: pointer;
-  background-color:#143774;/* #DC143C;*/
+  background-color: #143774; /* #DC143C;*/
   color: white;
 }
-.title-container{
-
-  background-color: #143774;
+.title-container {
+  background-color: #dc143c; /*background-color: #143774;*/
   height: 30px;
-
 }
-.title{
+.title {
   padding-left: 10px;
-color: white;
-/* #DC143C; ;*/
-/*font-family: 'Lora' , serif;*/
-font-family:  'Open Sans', sans-serif;
-
-
-
+  color: white;
+  /* #DC143C; ;*/
+  /*font-family: 'Lora' , serif;*/
+  font-family: "Open Sans", sans-serif;
 }
-.btn-container{
-
-    padding-top: 10px;
-    }
+.btn-container {
+  padding-top: 10px;
+}

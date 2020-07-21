@@ -11,13 +11,17 @@ chrome.runtime.onMessage.addListener((request) => {
     .getElementsByTagName("td")[2]
     .innerHTML.replace(/ /g, ""); // gets ride of white spaces in a string
 
-  tdPositionWithGrades = textInTdElement.length > 4 ? 3 : 2; // checks which td has the grade letter depending if site is DPG or gradesYorku
+  tdPositionWithGrades = textInTdElement.length > 4 ? 3 : 2; // checks which td element has the grade letter depending if site is DPG or gradesYorku
 
   var courses = [];
   var grades = [];
   var courseDictionary = new Set(); // stores all unique courses to validate user-input
 
-  //@desc: copies all courses and their corresponding grade  in tbody to td and grades array respectively.
+  /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and grades array respectively.
+           Also store all unique courses code (Department and Faculty) in @courseDictionary 
+  
+  
+  */ 
   //@param: @size is decreased by 1 so as to not include the first element in tbody array
 
   for (var i = 0; i < size - 1; i++) {
@@ -57,8 +61,8 @@ chrome.runtime.onMessage.addListener((request) => {
     courseDictionary.has(COURSE_CODE) ||
     courseDictionary.has(temporaryCourseCode)
   ) {
-    /*@desc: Copies all elements in td array that have the course code @COURSE_CODE to eecsCourses array
-  and  adds its  corresponding grade letter  to eecsGrades array.
+    /*@desc: Copies all elements in td array that have the course code @COURSE_CODE to @course_code_courses array
+  and  adds its  corresponding grade letter  to @course_code_grades array.
   @note: substring is used to only compare the course code then if it is the query course the whole course name gets added.
   */
 
@@ -73,7 +77,7 @@ chrome.runtime.onMessage.addListener((request) => {
       }
     }
 //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
-//and if the ending character in course code includes an invalid character
+// if the ending character in course code includes an invalid character in the <td> element
 //@param: @startPoint & @endPoint is the index to be started and end from in @eecsCourses inner HTML string respectively
 
     var startPoint = 0;
