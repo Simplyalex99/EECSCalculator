@@ -20,8 +20,8 @@ chrome.runtime.onMessage.addListener((request) => {
   /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
            Also store all unique courses code (Department and Faculty) in @courseDictionary 
   */ 
-  //@param: @size is decreased by 1 so as to not include the first element in @tbody array
 
+  //@param: @size is decreased by 1 so as to not include the first element in @tbody array
   for (var i = 0; i < size - 1; i++) {
     var tr;
     tr = tbody.getElementsByTagName("tr")[i + 1];
