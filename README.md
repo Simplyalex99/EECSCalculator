@@ -1,7 +1,7 @@
 # GPACalculator
 
 ## About
-[Description] (##-Description)
+* [Description](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#description)
 
 ## Description
 An extension for yorku students that calculates culminative gpa of one's query in  the degree progress report page or york university course grade page. 
