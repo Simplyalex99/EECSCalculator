@@ -23,10 +23,13 @@ An extension for yorku students that calculates culminative gpa of one's query i
 - Toggle "Developer mode" to on 
   ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
   
+
 - Now click "load unpack"
 
- ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
+
+![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
  
+
 - Select degree progress report then click "select" button
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step5.png)
  
