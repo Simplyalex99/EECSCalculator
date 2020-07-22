@@ -16,13 +16,19 @@ An extension for yorku students that calculates culminative gpa of one's query i
 
 ## setup
 - Download the folder degreeProgressReport with its files (You can please find an arrow in the green bar "Code" subheading that has an option to download via zip)
+ (https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step1.png)
 
 - In the browser go to extensions or in the tool bar click on "Window" then "Extensions"
-
+(https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
 - Toggle "Developer mode" to on and click "load unpack" then select the degreeProgess folder that was downloaded.
-  
+  (https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
+- Now click "load unpack"
+ (https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
+- Select degree progress report then click open button
+(https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step5.png)
+ 
 - Enable the extension so it can be visible. (top right corner click on puzzle icon then click on pin for "eecs calculator" extension).
-
+(https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step6.png)
 - Click on the gpa calculator extension and then enter your choice. You can now see your gpa of choice whenever you need to!
 
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
