@@ -16,7 +16,7 @@ An extension for yorku students that calculates culminative gpa of one's query i
 ## setup
 - Download the folder degreeProgressReport with its files (You can please find an arrow in the green bar "Code" subheading that has an option to download via zip)
 
-- Add the files as a browser extension; In the browser go to extensions, enable dev tools and click "load unpack" then select the degreeProgess folder.
+- Add the files as a browser extension; In the browser go to extensions or in tool bar click on "Window" then "extensions", enable dev tools and click "load unpack" then select the degreeProgess folder.
   Enable the extension as if might be set off and not appear next to extension icon.
 
 - Copy the URL of the website and replace the URL next to the "matches" in manifest.json file with your URL of the page.
