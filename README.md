@@ -20,9 +20,9 @@ An extension for yorku students that calculates culminative gpa of one's query i
   
 - Enable the extension so it can be visible. (top right corner click on puzzle icon then click on pin for "eecs calculator" extension).
 
-- Copy the URL of the website and replace the URL next to the "matches" in manifest.json file with your URL of the page.
+- Copy the URL of the website and replace the URL next to the "matches" in manifest.json file with your URL of the page then save.
 
-- Make sure to save then refresh the extension anytime changes are made.
+- Make sure to refresh the extension anytime changes are made.
 
 - Click on the gpa calculator extension and then enter your choice. You can now see your gpa of choice whenever you need to!
 
