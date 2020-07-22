@@ -94,6 +94,28 @@ chrome.runtime.onMessage.addListener((request) => {
       endPoint = 0;
     }
 
+    /* 
+    @desc: Copies all credit values and grades into @all_credits and @all_grades respectively.
+
+    @note: @courses and @grades store table elements with values while @all_Credits and @all_grades stores 
+    the actual values to be used in calculations.
+    
+    */
+    var all_credits = [];
+    var all_grades = [];
+    
+
+    for (var i = 0; i < courses.length; i++) {
+      let text = courses[i].innerHTML.replace(/ /g, "");
+      let credit = text.substring(
+        text.length - startPoint,
+        text.length - endPoint
+      );
+      all_credits[i] = credit;
+
+      all_grades[i] = grades[i].innerHTML.replace(/ /g, "");
+    }
+
     /* @desc: calculates @COURSE_CODE culminative gpa using the formula: 
   Graderesult = Gradepoint_N * Creditvalue_N + Gradepoint_N-1 * Creditvalue_N-1...
   total = Graderesult / total_Gradepoint
@@ -101,8 +123,8 @@ chrome.runtime.onMessage.addListener((request) => {
   */
 
     var eecsGpa = 0;
-    var totalCredits = 0;
-    var totalGPAPoints = 0;
+    var course_code_total_credits = 0;
+    var course_code_GPA = 0;
 
     for (var i = 0; i < course_code_courses.length; i++) {
       var courseName = course_code_courses[i].replace(/ /g, ""); // gets rid of all white spaces
@@ -121,23 +143,49 @@ chrome.runtime.onMessage.addListener((request) => {
         var creditValue = parseInt(courseCredit);
         var result = gradePoint * creditValue;
         eecsGpa += result;
-        totalCredits += creditValue;
+        course_code_total_credits += creditValue;
       }
     }
-    totalGPAPoints = eecsGpa;
-    //@desc: Outputs eecs gpa to console and formula used is : total points/total credits
-    if (totalCredits == 0) eecsGpa = 0;
-    else{ eecsGpa = (eecsGpa / totalCredits).toFixed(2);}
+    course_code_GPA = eecsGpa;
+
+    //@desc:sets @eecsGPA to 0 if no credit values read to prevent NaN output
+    if (course_code_total_credits == 0) eecsGpa = 0;
+    else {
+      eecsGpa = (eecsGpa / course_code_total_credits).toFixed(2); // formula to calculate gpa
+    }
+
+    //@descp: Calculates overall gpa.
+    var overallGPA = 0;
+    var totalcredits = 0;
+    var totalPoints = 0;
+
+    for (var i = 0; i < all_credits.length; i++) {
+      var gradeLetter = all_grades[i];
+      var point = gradeLetterToNumber(gradeLetter);
+
+      if (point >= 0) {
+        totalcredits += parseInt(all_credits[i]);
+
+        totalPoints += point * parseInt(all_credits[i]);
+      }
+    }
+
+    //@desc:sets @overallGPA to 0 if no credit values read to prevent NaN output 
+    if (totalcredits === 0) overallGPA = 0;
+    else {
+      overallGPA = (totalPoints / totalcredits).toFixed(2);
+    }
+
     alert(
       COURSE_CODE +
         " gpa: " +
         eecsGpa +
-        " total credits: " +
-        totalCredits +
-        "\ntotal grade points: " +
-        totalGPAPoints +
-        "\ncourses: \n" +
-        gradesAndCourses
+        "\n" + COURSE_CODE + " total credits: " + 
+        course_code_total_credits + "\n" +COURSE_CODE +
+        " total grade points: " +
+        course_code_GPA +
+        "\nOverall GPA: " + overallGPA
+        
     );
 
     //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
