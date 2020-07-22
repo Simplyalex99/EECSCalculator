@@ -103,7 +103,6 @@ chrome.runtime.onMessage.addListener((request) => {
     */
     var all_credits = [];
     var all_grades = [];
-    
 
     for (var i = 0; i < courses.length; i++) {
       let text = courses[i].innerHTML.replace(/ /g, "");
@@ -170,7 +169,7 @@ chrome.runtime.onMessage.addListener((request) => {
       }
     }
 
-    //@desc:sets @overallGPA to 0 if no credit values read to prevent NaN output 
+    //@desc:sets @overallGPA to 0 if no credit values read to prevent NaN output
     if (totalcredits === 0) overallGPA = 0;
     else {
       overallGPA = (totalPoints / totalcredits).toFixed(2);
@@ -180,12 +179,20 @@ chrome.runtime.onMessage.addListener((request) => {
       COURSE_CODE +
         " gpa: " +
         eecsGpa +
-        "\n" + COURSE_CODE + " total credits: " + 
-        course_code_total_credits + "\n" +COURSE_CODE +
+        "\n" +
+        COURSE_CODE +
+        " total credits: " +
+        course_code_total_credits +
+        "\n" +
+        COURSE_CODE +
         " total grade points: " +
         course_code_GPA +
-        "\nOverall GPA: " + overallGPA
-        
+        "\nOverall GPA: " +
+        overallGPA +
+        "\ntotal credits: " +
+        totalcredits +
+        "\ntotal grade points: " +
+        totalPoints
     );
 
     //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
