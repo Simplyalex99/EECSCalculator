@@ -17,7 +17,8 @@ An extension for yorku students that calculates culminative gpa of one's query i
 - Download the folder degreeProgressReport with its files (You can please find an arrow in the green bar "Code" subheading that has an option to download via zip)
 
 - Add the files as a browser extension; In the browser go to extensions or in tool bar click on "Window" then "extensions", enable dev tools and click "load unpack" then select the degreeProgess folder.
-  Enable the extension as if might be set off and not appear next to extension icon.
+  
+- Enable the extension so it can be visible. (top right corner click on puzzle icon then click on pin for "eecs calculator" extension).
 
 - Copy the URL of the website and replace the URL next to the "matches" in manifest.json file with your URL of the page.
 
