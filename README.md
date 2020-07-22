@@ -5,7 +5,7 @@
 * [setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
 * [demo](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
 * [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
-* [Motivation] (https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#motivation)
+* [Motivation](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#motivation)
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
