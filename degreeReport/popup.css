@@ -29,17 +29,17 @@ p {
 }
 
 .submit-btn {
-  color: #143774; /*#DC143C; * #2196f3;*/
+  color: #143774;
   background: white;
   padding: 5px 15px;
   font-family: "Raleway", sans-serif;
 
-  border-color: #143774; /*red ;*/
+  border-color: #143774; 
   border-radius: 6px;
 }
 .submit-btn:hover {
   cursor: pointer;
-  background-color: #143774; /* #DC143C;*/
+  background-color:  #143774;
   color: white;
 }
 .logo-container {
@@ -48,19 +48,25 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.title-container{
+  background-color:  #143774;
+  height: 30px;
+
+}
 .title {
-  /*  NOTE: switched to logo theme temporarily
+    
   padding-top:2px ;
 display: flex;
 justify-content: center;
 
   color:white;
  
-  font-family: "Open Sans", sans-serif; */
+  font-family: "Open Sans", sans-serif; 
 }
 .logo {
   height: 100%;
-  width: 60%;
+  width:40%;
 }
 .btn-container {
   padding-top: 10px;
