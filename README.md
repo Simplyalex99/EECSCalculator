@@ -11,7 +11,7 @@
 ## Description
 An extension for yorku students that calculates culminative gpa of one's query in  the degree progress report page (https://myacademicrecord.students.yorku.ca/degree-progress-report) or york university course grade page (https://myonlineservices.students.yorku.ca/ in course and grade list section)  
 
-![](gpaUI.png)
+![](ExtensionUI.png)
 
 
 ## setup
