@@ -14,6 +14,7 @@
   padding: 3px;
   border-radius: 4px;
   font-family: "Raleway", sans-serif;
+  text-align: center;
 }
 
 .input-container {
@@ -24,13 +25,14 @@ p {
 
   font-size: 15px;
   padding-bottom: 2px;
+/*text-align: center;*/
 }
 
 .submit-btn {
   color: #143774; /*#DC143C; * #2196f3;*/
   background: white;
   padding: 5px 15px;
-  font-family: "Raleway", sans-serif; /*'Ubuntu' , sans-serif;*/
+  font-family: "Raleway", sans-serif; 
 
   border-color: #143774; /*red ;*/
   border-radius: 6px;
@@ -45,14 +47,18 @@ p {
   height: 30px;
 }
 .title {
-  padding-left: 10px;
+ 
   padding-top:2px ;
+display: flex;
+justify-content: center;
+
   color: white;
-  padding-bottom: 2px;
-  /* #DC143C; ;*/
-  /*font-family: 'Lora' , serif;*/
+ 
   font-family: "Open Sans", sans-serif;
 }
 .btn-container {
   padding-top: 10px;
+  display: flex;
+
+justify-content: center;
 }
