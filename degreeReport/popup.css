@@ -25,14 +25,14 @@ p {
 
   font-size: 15px;
   padding-bottom: 2px;
-/*text-align: center;*/
+  /*text-align: center;*/
 }
 
 .submit-btn {
   color: #143774; /*#DC143C; * #2196f3;*/
   background: white;
   padding: 5px 15px;
-  font-family: "Raleway", sans-serif; 
+  font-family: "Raleway", sans-serif;
 
   border-color: #143774; /*red ;*/
   border-radius: 6px;
@@ -42,23 +42,29 @@ p {
   background-color: #143774; /* #DC143C;*/
   color: white;
 }
-.title-container {
+.logo-container {
   background-color: #dc143c; /*background-color: #143774;*/
-  height: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
 }
 .title {
- 
+  /*  NOTE: switched to logo theme temporarily
   padding-top:2px ;
 display: flex;
 justify-content: center;
 
-  color: white;
+  color:white;
  
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif; */
+}
+.logo {
+  height: 100%;
+  width: 60%;
 }
 .btn-container {
   padding-top: 10px;
   display: flex;
 
-justify-content: center;
+  justify-content: center;
 }
