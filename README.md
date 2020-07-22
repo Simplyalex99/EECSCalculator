@@ -5,6 +5,7 @@
 * [setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
 * [demo](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
 * [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
+* [Motivation] ()
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
@@ -35,7 +36,7 @@ For example, choosing yorku degree progress report (DPR) as the website to calcu
 Improve structure of code for maintainability.
 
 ## Motivation:
-Currently, there is no way to view eecs gpa or math gpa in either sites provided by York. The only current way to get such grades is to go to yorku gpa calculator website and manually type in the grade received and credit value. Its not much a problem when its a few courses, but over the years students take lots of courses and having to re-calculate is time-consuming.This extension allows users to calculate their gpa in a click a button of their choice!
+Currently, there is no way to view eecs gpa or math  or any certain course gpa in either sites provided by York. The only current way to get such grades to see if you meet the requirements for coop, or internship or a certain course is to go to yorku gpa calculator website and manually type in the grade received and credit value. Its not much a problem when its a few courses, but over the years students take lots of courses and having to re-calculate is time-consuming. This extension allows users to calculate their gpa in a click a button of their choice!
 
 ### Special thanks:
 To all those who helped!
