@@ -15,7 +15,7 @@ An extension for yorku students that calculates **culminative** and **overall** 
 
 
 ## setup
-- Download the folder degreeProgressReport with its files. Click on "Code" button to download ZIP file. 
+- Download the folder degreeReport with its files. Click on "Code" button to download ZIP file. 
 
 
 -  In the tool bar click on "Window" then "Extensions" then Toggle "Developer mode" to on
@@ -30,6 +30,8 @@ An extension for yorku students that calculates **culminative** and **overall** 
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
  
+
+
 
 
 
