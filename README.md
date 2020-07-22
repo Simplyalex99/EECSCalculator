@@ -34,7 +34,7 @@ An extension for yorku students that calculates culminative gpa of one's query i
 
 - Enable the extension so it can be visible. (top right corner click on puzzle icon then click on pin for "eecs calculator" extension).
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step6.png)
+
 
 Click on the gpa calculator icon and then enter your choice. You can now see your gpa of choice whenever you need to!
 
