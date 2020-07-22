@@ -20,8 +20,9 @@ An extension for yorku students that calculates culminative gpa of one's query i
 
 - In the browser go to extensions or in the tool bar click on "Window" then "Extensions"
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
+
 - Toggle "Developer mode" to on 
-  ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
+![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
   
 
 - Now click "load unpack"
@@ -37,7 +38,7 @@ An extension for yorku students that calculates culminative gpa of one's query i
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step6.png)
 
-- Click on the gpa calculator extension and then enter your choice. You can now see your gpa of choice whenever you need to!
+Click on the gpa calculator icon and then enter your choice. You can now see your gpa of choice whenever you need to!
 
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
