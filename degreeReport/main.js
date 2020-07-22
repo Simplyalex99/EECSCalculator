@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
   /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
            Also store all unique courses code (Department and Faculty) in @courseDictionary 
-  */ 
+  */
 
   //@param: @size is decreased by 1 so as to not include the first element in @tbody array
   for (var i = 0; i < size - 1; i++) {
@@ -69,15 +69,18 @@ chrome.runtime.onMessage.addListener((request) => {
       var gradeLetter = grades[i].innerHTML;
       if (temp === COURSE_CODE || temp === temporaryCourseCode) {
         temp = courses[i].innerHTML;
-        var courseText = tdPositionWithGrades===3? temp.substring(0,12) + " " + temp.substring(20,temp.length): temp; // if site is not DPR then gets rid of &nbsp text
+        var courseText =
+          tdPositionWithGrades === 3
+            ? temp.substring(0, 12) + " " + temp.substring(20, temp.length)
+            : temp; // if site is not DPR then gets rid of &nbsp text
         course_code_courses[index] = courseText;
         course_code_grades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
         index++;
       }
     }
-//@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
-// if the ending character in course code includes an invalid character in the <td> element
-//@param: @startPoint & @endPoint is the index to be started and end from in @eecsCourses inner HTML string respectively
+    //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
+    // if the ending character in course code includes an invalid character in the <td> element
+    //@param: @startPoint & @endPoint is the index to be started and end from in @eecsCourses inner HTML string respectively
 
     var startPoint = 0;
     var endPoint = 0;
@@ -91,16 +94,16 @@ chrome.runtime.onMessage.addListener((request) => {
       endPoint = 0;
     }
 
-  /* @desc: calculates @COURSE_CODE culminative gpa using the formula: 
+    /* @desc: calculates @COURSE_CODE culminative gpa using the formula: 
   Graderesult = Gradepoint_N * Creditvalue_N + Gradepoint_N-1 * Creditvalue_N-1...
   total = Graderesult / total_Gradepoint
   
   */
-  
+
     var eecsGpa = 0;
     var totalCredits = 0;
     var totalGPAPoints = 0;
- 
+
     for (var i = 0; i < course_code_courses.length; i++) {
       var courseName = course_code_courses[i].replace(/ /g, ""); // gets rid of all white spaces
       var gradeLetter = course_code_grades[i];
@@ -123,7 +126,8 @@ chrome.runtime.onMessage.addListener((request) => {
     }
     totalGPAPoints = eecsGpa;
     //@desc: Outputs eecs gpa to console and formula used is : total points/total credits
-    eecsGpa = (eecsGpa / totalCredits).toFixed(2);
+    if (totalCredits == 0) eecsGpa = 0;
+    else{ eecsGpa = (eecsGpa / totalCredits).toFixed(2);}
     alert(
       COURSE_CODE +
         " gpa: " +
