@@ -54,7 +54,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
   var gradesAndCourses = [];
   var count = 0;
-
+var courseText = "";
   if (
     courseDictionary.has(COURSE_CODE) ||
     courseDictionary.has(temporaryCourseCode)
@@ -69,7 +69,8 @@ chrome.runtime.onMessage.addListener((request) => {
       var gradeLetter = grades[i].innerHTML;
       if (temp === COURSE_CODE || temp === temporaryCourseCode) {
         temp = courses[i].innerHTML;
-        course_code_courses[index] = temp;
+        courseText = tdPositionWithGrades===3? temp.substring(0,12) + " " + temp.substring(20,temp.length): temp; // if site is not DPR then gets rid of &nbsp text
+        course_code_courses[index] = courseText;
         course_code_grades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
         index++;
       }
