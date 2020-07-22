@@ -71,7 +71,7 @@ chrome.runtime.onMessage.addListener((request) => {
         temp = courses[i].innerHTML;
         var courseText =
           tdPositionWithGrades === 3
-            ? temp.substring(0, 12) + " " + temp.substring(20, temp.length)
+            ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
             : temp; // if site is not DPR then gets rid of &nbsp text
         course_code_courses[index] = courseText;
         course_code_grades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
