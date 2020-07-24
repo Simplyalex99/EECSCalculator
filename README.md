@@ -2,10 +2,11 @@
 
 ## About
 * [Description](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#description)
-* [setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
+* [Setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
 * [demo](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
 * [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
 * [Motivation](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#motivation)
+* [Important note]
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
@@ -14,7 +15,7 @@ An extension for yorku students that calculates **culminative** and **overall** 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/gpaUIPreview.png)
 
 
-## setup
+## Setup
 - Download the folder degreeReport with its files. Click on "Code" button to download ZIP file. 
 
 
@@ -49,6 +50,10 @@ Improve structure of code for maintainability.
 
 ## Motivation:
 Currently, there is no way to view eecs gpa or math  or any certain course gpa in either sites provided by York. The only current way to get such grades to see if you meet the requirements for coop, or internship or a certain course is to go to yorku gpa calculator website and manually type in the grade received and credit value. Its not much a problem when its a few courses, but over the years students take lots of courses and having to re-calculate is time-consuming. This extension allows users to calculate their gpa in a click a button of their choice!
+
+## Important Noticce
+
+You might find that you get 2 different gpa values if you try York university degree progress and york univeristy grades page. This is because York university degree report is the most up-to-date with one's grades compared to the other site which takes some time for the school to update. So its not the extension but the school system.
 
 ### Special thanks:
 To all those who helped!
