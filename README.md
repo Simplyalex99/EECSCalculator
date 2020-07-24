@@ -11,7 +11,7 @@
 ## Description
 An extension for yorku students that calculates **culminative** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1)  
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/degreeReport/ExtensionUI.png)
+![](https://github.com/Simplyalex99/EECSCalculator/blob/master/gpaUIPreview.png)
 
 
 ## setup
