@@ -55,7 +55,7 @@ Currently, there is no way to view eecs gpa or math  or any certain course gpa i
 
 - You might find that you get 2 different gpa values if you try York university degree progress and york univeristy grades page. This is because York university degree report is the most up-to-date with one's grades compared to the other site which takes some time for the school to update. So its not the extension.
 
-- This is an extension that runs only on a script and no servers are involved in leaking  or having access to personal information. This app is not in anyway associated with York university. This extension is built for the purpose of being an utility for students to use without the need to manually calculate their GPA.
+- This is an extension that runs only on a script and **no** servers are involved in leaking  or having access to personal information. This app is not in anyway associated with York university. This extension is built for the purpose of being an utility for students to use without the need to manually calculate their GPA.
 
 ### Special thanks:
 To all those who helped!
