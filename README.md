@@ -19,7 +19,7 @@ An extension for yorku students that calculates **culminative**  , **sessional**
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 
 
--  In the tool bar click on "Window" then "Extensions" then Toggle "Developer mode" to on or click on the 3 vertical dot icon top right corner next to puzzle icon and click on "more tools" then "Extensions".
+-  In the tool bar click on "Window" then "Extensions"  to on (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions") then toggle "Developer mode".
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
 
@@ -27,7 +27,7 @@ An extension for yorku students that calculates **culminative**  , **sessional**
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
   
 
-- Now click "load unpack" then select the degreereport  folder then click "select" button
+- Now click "load unpack" then select the degreereport  folder that you downloaded(IF you do not see it , it might be in Downloads folder or search "degreeReport") then click "select" button
 
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
@@ -37,7 +37,7 @@ An extension for yorku students that calculates **culminative**  , **sessional**
 
 
 
-- Now click on the gpa calculator icon and then enter your choice. You can now see your gpa of choice whenever you need to!
+- Now click on the gpa calculator icon(click on puzzle icon then look for "gpa calculator") and then enter your choice. You can now see your gpa of choice whenever you need to!
 
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
