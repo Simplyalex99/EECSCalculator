@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener((request) => {
   var gradesAndCourses = [];
   var count = 0;
 
-  var queryGPAState = "Invalid response for query. Check spelling\n";
+  var queryGPAState = "Sorry. Choice of GPA is not available. Please check spelling.\n";
 
   // GLOBAL STATE 1 @startpoint and @endpoint (used code prevent redudnat code)
   //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
