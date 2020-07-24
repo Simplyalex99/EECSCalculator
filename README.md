@@ -3,7 +3,7 @@
 ## About
 * [Description](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#description)
 * [Setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
-* [demo](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
+* [How to use](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
 * [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
 * [Motivation](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#motivation)
 * [Important note](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#important-notice)
@@ -19,10 +19,12 @@ A **google chrome** extension for yorku students that calculates **culminative**
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 
 
--  In the tool bar click on "Window" then "Extensions" (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions") then toggle "Developer mode" to on.
+-  In the tool bar click on "Window" then "Extensions" (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions").
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
 
+
+- Toggle "Developer mode" to on 
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
   
@@ -41,7 +43,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
-## Demo
+## How to use
 For example, choosing yorku degree progress report (DPR) as the website to calculate EECS gpa, still on the page now click on the gpa calculator extension which will display the app. Now entering LE/EECS will give the overall gpa for all eecs courses and sessional and overall gpa. If there is no need to see a certain faculty/department gpa, then simply click submit will show overall and sessional gpa but not the query gpa. To find gpa of 2 faculty lets say MATH and EECS simply type "le/eecs" and record the credits and grade points reference. Do the same now for MATH then sum the two reference gradepoints and divide it by ther other credits summed up.
 
 
