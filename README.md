@@ -19,7 +19,8 @@ An extension for yorku students that calculates **culminative**  , **sessional**
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 
 
--  In the tool bar click on "Window" then "Extensions" then Toggle "Developer mode" to on
+-  In the tool bar click on "Window" then "Extensions" then Toggle "Developer mode" to on or click on the 3 vertical dot icon top right corner next to puzzle icon and click on "more tools" then "Extensions".
+
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
 
 
