@@ -27,7 +27,11 @@ p {
   padding-bottom: 2px;
   /*text-align: center;*/
 }
+.divideMiddleText{
 
+text-align: center;
+font-weight: bold;
+}
 .submit-btn {
   color: #143774;
   background: white;
