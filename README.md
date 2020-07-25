@@ -4,9 +4,9 @@
 * [Description](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#description)
 * [Setup](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#setup)
 * [How to use](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#demo)
+* [Important note](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#important-notice)
 * [to-do](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#to-do)
 * [Motivation](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#motivation)
-* [Important note](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#important-notice)
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
