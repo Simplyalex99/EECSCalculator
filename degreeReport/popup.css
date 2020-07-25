@@ -7,7 +7,7 @@
   padding: 5px;
 }
 .input-container {
-  padding-top: 10px; /*8px*/
+  padding-top: 10px; 
   padding-bottom: 10px;
 }
 .input {
@@ -17,29 +17,24 @@
   padding: 3px;
   border-radius: 4px;
   font-family: "Raleway", sans-serif;
-  /*text-align: center;*/
-}
 
+}
 
 p {
   font-family: "Open Sans", sans-serif;
 
   font-size: 15px;
   padding-bottom: 5px;
-  /*text-align: center;*/
+  
 }
-.footnote{
-
+.footnote {
   font-family: "Open Sans", sans-serif;
-color:  #0049B7 ;
+  color: #0049b7;
   font-size: 8px;
-
-
 }
-.divideMiddleText{
-
-text-align: center;
-font-weight: bold;
+.divideMiddleText {
+  text-align: center;
+  font-weight: bold;
 }
 .btn-container {
   padding-top: 10px;
@@ -47,46 +42,43 @@ font-weight: bold;
 
   justify-content: center;
 }
-.goto-btn{
-  color:#143774;
+.goto-btn {
+  color: #143774;
   background: white;
   padding: 5px 15px;
   font-family: "Raleway", sans-serif;
 
-  border-color: #143774; 
+  border-color: #143774;
   border-radius: 6px;
-width:100%;
-
-} 
+  width: 100%;
+}
 .submit-btn {
-  color: white; /*#143774;*/
-  background: #143774;/* white;*/
+  color: white;
+  background: #143774;
   padding: 5px 15px;
   font-family: "Raleway", sans-serif;
-width:100%;
-  border-color: #143774; 
+  width: 100%;
+  border-color: #143774;
   border-radius: 6px;
 }
-.submit-btn:hover , .goto-btn:hover{
+.submit-btn:hover,
+.goto-btn:hover {
   cursor: pointer;
-  background-color: 	#006400;/* #228B22;/* #39a0ca;/*  #0049B7 #0074D9;  #2ECC40;*/
+  background-color: 	#7EB6FF;
   color: white;
-  border-color: 	#006400;
-
+  border-color: 	#7EB6FF;
 }
 
-.title-container{
-  background-color:  #143774;
+.title-container {
+  background-color: #143774;
   height: 30px;
-
 }
 .title {
-    
-  padding-top:2px ;
-display: flex;
-justify-content: center;
+  padding-top: 2px;
+  display: flex;
+  justify-content: center;
 
-  color:white;
- 
-  font-family: "Open Sans", sans-serif; 
+  color: white;
+
+  font-family: "Open Sans", sans-serif;
 }
