@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   document.getElementById('redirect-btn').addEventListener('click', clickHandler);
 function clickHandler (e) {
 
-chrome.tabs.update({url: "https://w6prod.sis.yorku.ca/yda/student"});
+chrome.tabs.update({url: "https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1"});
 window.close();
 
 
