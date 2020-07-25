@@ -3,10 +3,13 @@
   padding: 0;
 }
 .container {
-  margin: 5px;
+  margin: 10px;
   padding: 5px;
 }
-
+.input-container {
+  padding-top: 10px; /*8px*/
+  padding-bottom: 10px;
+}
 .input {
   background: #f8f8f8;
   border-style: none;
@@ -14,17 +17,15 @@
   padding: 3px;
   border-radius: 4px;
   font-family: "Raleway", sans-serif;
-  text-align: center;
+  /*text-align: center;*/
 }
 
-.input-container {
-  padding-top: 8px;
-}
+
 p {
   font-family: "Open Sans", sans-serif;
 
   font-size: 15px;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
   /*text-align: center;*/
 }
 .divideMiddleText{
@@ -32,19 +33,38 @@ p {
 text-align: center;
 font-weight: bold;
 }
-.submit-btn {
-  color: #143774;
+.btn-container {
+  padding-top: 10px;
+  display: flex;
+
+  justify-content: center;
+}
+.goto-btn{
+  color:#143774;
   background: white;
   padding: 5px 15px;
   font-family: "Raleway", sans-serif;
 
   border-color: #143774; 
   border-radius: 6px;
+width:100%;
+
+} 
+.submit-btn {
+  color: white; /*#143774;*/
+  background: #143774;/* white;*/
+  padding: 5px 15px;
+  font-family: "Raleway", sans-serif;
+width:100%;
+  border-color: #143774; 
+  border-radius: 6px;
 }
-.submit-btn:hover {
+.submit-btn:hover , .goto-btn:hover{
   cursor: pointer;
-  background-color:  #143774;
+  background-color: #228B22;/* #39a0ca;/*  #0049B7 #0074D9;  #2ECC40;*/
   color: white;
+  border-color: #228B22;
+  
 }
 .logo-container {
   background-color: #dc143c; /*background-color: #143774;*/
@@ -71,10 +91,4 @@ justify-content: center;
 .logo {
   height: 100%;
   width:40%;
-}
-.btn-container {
-  padding-top: 10px;
-  display: flex;
-
-  justify-content: center;
 }
