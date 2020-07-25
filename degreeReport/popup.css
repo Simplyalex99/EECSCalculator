@@ -61,9 +61,9 @@ width:100%;
 }
 .submit-btn:hover , .goto-btn:hover{
   cursor: pointer;
-  background-color: #228B22;/* #39a0ca;/*  #0049B7 #0074D9;  #2ECC40;*/
+  background-color: 	#006400;/* #228B22;/* #39a0ca;/*  #0049B7 #0074D9;  #2ECC40;*/
   color: white;
-  border-color: #228B22;
+  border-color: 	#006400;
   
 }
 .logo-container {
