@@ -31,6 +31,8 @@ p {
   font-family: "Open Sans", sans-serif;
   color: #0049b7;
   font-size: 8px;
+  padding-top: 6px;
+  text-align: center;
 }
 .divideMiddleText {
   text-align: center;
