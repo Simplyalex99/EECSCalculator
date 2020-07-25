@@ -28,6 +28,14 @@ p {
   padding-bottom: 5px;
   /*text-align: center;*/
 }
+.footnote{
+
+  font-family: "Open Sans", sans-serif;
+color:  #0049B7 ;
+  font-size: 8px;
+
+
+}
 .divideMiddleText{
 
 text-align: center;
