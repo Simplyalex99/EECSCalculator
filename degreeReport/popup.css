@@ -66,9 +66,9 @@ p {
 .submit-btn:hover,
 .goto-btn:hover {
   cursor: pointer;
-  background-color: 	#7EB6FF;
+  background-color: #0198E1;/*	#7EB6FF;*/
   color: white;
-  border-color: 	#7EB6FF;
+  border-color: 	#0198E1;
 }
 
 .title-container {
