@@ -247,7 +247,7 @@ chrome.runtime.onMessage.addListener((request) => {
   }
   }
 
- 
+
   const TERM_YEAR = "FW" + year;
   const SUMMER_TERM = "SU" + year;
   var FWtermCourseCredits = [];
