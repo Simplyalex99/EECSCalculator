@@ -54,7 +54,7 @@ chrome.runtime.onMessage.addListener((request) => {
   var count = 0;
 
   var queryGPAState = "Sorry. Culminative GPA is not available. Please check spelling\n" +
-  "or enter one as specificied in the description.\n";
+  "or enter one as specificied in the description\n(Ex: SC MATH2030 enter as SC/MATH to get all math gpa).\n" ;
 
   // GLOBAL STATE 1 @startpoint and @endpoint (used code prevent redudant code)
   //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
