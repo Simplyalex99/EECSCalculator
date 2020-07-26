@@ -45,10 +45,10 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 ## How to use
 For example, choosing yorku degree progress report (DPR) as the website to calculate EECS gpa, still on the page now click on the gpa calculator extension which will display the app. Now entering LE/EECS will give the overall gpa for all eecs courses and sessional and overall gpa. If there is no need to see a certain faculty/department gpa, then simply click submit will show overall and sessional gpa but not the query gpa. To find gpa of 2 faculty lets say MATH and EECS simply type "le/eecs" and record the credits and grade points reference. Do the same now for MATH then sum the two reference gradepoints and divide it by ther other credits summed up.
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep2.png" width="400" height="790">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep3.png" width="400" height="790">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4a.png" width= "400" height="790">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4.png" width="400" height="790">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep2.png" width="400" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep3.png" width="400" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4a.png" width= "400" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4.png" width="400" height="400">
 
 
 
