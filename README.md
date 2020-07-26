@@ -12,7 +12,8 @@
 ## Description
 A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1)  
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/updatedGpaUI.png)
+
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/updatedGpaUI.png" width="300" height="400">
 
 
 ## Setup
@@ -21,7 +22,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 -  In the tool bar click on "Window" then "Extensions" (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions").
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png)
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png" width="400" height="300">
 
 
 - Toggle "Developer mode" to on 
@@ -44,9 +45,14 @@ A **google chrome** extension for yorku students that calculates **culminative**
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
 ## How to use
-For example, choosing yorku degree progress report (DPR) as the website to calculate EECS gpa, still on the page now click on the gpa calculator extension which will display the app. Now entering LE/EECS will give the overall gpa for all eecs courses and sessional and overall gpa. If there is no need to see a certain faculty/department gpa, then simply click submit will show overall and sessional gpa but not the query gpa. To find gpa of 2 faculty lets say MATH and EECS simply type "le/eecs" and record the credits and grade points reference. Do the same now for MATH then sum the two reference gradepoints and divide it by ther other credits summed up.
+For example, choosing yorku degree progress report (DPR) as the website to calculate EECS gpa, still on the page now click on the gpa calculator extension which will display the app. Now entering LE/EECS will give the overall gpa for all eecs courses and sessional and overall gpa. If there is no need to see a certain faculty/department gpa, then simply click submit will show overall and sessional gpa but not the query gpa.
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep2.png) ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep3.png)
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep2.png" width="300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep3.png" width="500" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4a.png" width= "300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4.png" width="500" height="400">
+
+
+
+
 
 ### To-do:
 Improve structure of code for maintainability and add more life quality improvement in the future.
