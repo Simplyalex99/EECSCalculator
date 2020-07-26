@@ -36,8 +36,8 @@ window.close();
 });
 /*
 
-Add option to direct user to DPR or grades yorku in button. Make sure to make the formatting of buttons 
-and instructions clear and simple so user know in a blink of an eye what to do.
+First even listener sends user input from input element to content script main.js
 
+Second event listener re-directs user to grades yorku  website. 
 
 */

@@ -12,9 +12,9 @@ chrome.runtime.onMessage.addListener((request) => {
     .innerHTML.replace(/ /g, ""); // gets ride of white spaces in a string
 
   tdPositionWithGrades = textInTdElement.length > 4 ? 3 : 2; // checks which td element has the grade letter depending if site is DPG or gradesYorku
-  var terms = []; // stores td element innerHtml of school term 
+  var terms = []; // stores td element innerHtml of school term
   var courses = []; // stores td element with course name not the actual string value
-  var grades = [];// stores td element with course grade not the actual string value
+  var grades = []; // stores td element with course grade not the actual string value
   var courseDictionary = new Set(); // stores all unique courses to validate user-input
 
   /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener((request) => {
   //@param: @size is decreased by 1 so as to not include the first element in @tbody array
   for (var i = 0; i < TABLE_SIZE - 1; i++) {
     var tr2;
-    tr2 = tbody.getElementsByTagName("tr")[i + 1]; // gets specific tr elementfrom table  
+    tr2 = tbody.getElementsByTagName("tr")[i + 1]; // gets specific tr elementfrom table
 
     courses[i] = tr2.getElementsByTagName("td")[1]; // gets specific td element with course name from previous tr element
 
@@ -41,7 +41,7 @@ chrome.runtime.onMessage.addListener((request) => {
   var temp;
   const COURSE_CODE = request.toUpperCase().replace(/ /g, ""); // User response (course gpa to be evaluated)
 
-  //@desc: Creates same course code but without "/" character 
+  //@desc: Creates same course code but without "/" character
   //@note: Due to webpage having different course code format, must check for both options for input consistency
   var temporaryCourseCode = "";
   for (var i = 0; i < COURSE_CODE.length; i++) {
@@ -53,14 +53,15 @@ chrome.runtime.onMessage.addListener((request) => {
   var gradesAndCourses = [];
   var count = 0;
 
-  var queryGPAState = "Sorry. Culminative GPA is not available. Please check spelling.\n" +
-  "(Ex: Enter SC MATH2030  as SC/MATH to get all math gpa).\n" ;
+  var queryGPAState =
+    "Sorry. Culminative GPA is not available. Please check spelling.\n" +
+    "(Ex: Enter SC MATH2030  as SC/MATH to get all math gpa).\n";
 
   // GLOBAL STATE 1 @startpoint and @endpoint (used code prevent redudant code)
   //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage
   // if the ending character in course code includes an invalid character in the <td> element
   //@param: @startPoint & @endPoint is the index to be started and end from in @courses_code_courses inner HTML string respectively
-// Needed to find where the credit is in the string
+  // Needed to find where the credit is in the string
   var startPoint = 0;
   var endPoint = 0;
 
@@ -84,7 +85,7 @@ chrome.runtime.onMessage.addListener((request) => {
     courseDictionary.has(COURSE_CODE) ||
     courseDictionary.has(temporaryCourseCode)
   ) {
-    // -------------QUERY GPA-------------------
+    // -------------------------QUERY GPA-----------------------------------
     /*@desc: Copies all elements in td array that have the course code @COURSE_CODE to @course_code_courses array
   and  adds its  corresponding grade letter  to @course_code_grades array.
   @note: substring is used to only compare the course code then if it is the query course the whole course name gets added.
@@ -130,7 +131,6 @@ chrome.runtime.onMessage.addListener((request) => {
         course_code_total_credits += creditValue;
       }
     }
-    
 
     //@desc:sets @eecsGPA to 0 if no credit values read to prevent NaN output
     if (course_code_total_credits == 0) course_code_GPA = 0;
@@ -149,7 +149,8 @@ chrome.runtime.onMessage.addListener((request) => {
       " " +
       COURSE_CODE +
       " grade points: " +
-      eecsGpa + "\n";
+      eecsGpa +
+      "\n";
   }
 
   //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
@@ -168,11 +169,11 @@ chrome.runtime.onMessage.addListener((request) => {
     else return -1;
   }
 
-  //--------------MAJOR GPA -----------------
+  //---------------------MAJOR GPA --------------------------
 
   var all_credits = [];
   var all_grades = [];
-//@desc: Copies all grades and credits string value to @all_grades and @all_credits  respectively
+  //@desc: Copies all grades and credits string value to @all_grades and @all_credits  respectively
   for (var i = 0; i < courses.length; i++) {
     let text = courses[i].innerHTML.replace(/ /g, "");
     let credit = text.substring(
@@ -213,40 +214,42 @@ chrome.runtime.onMessage.addListener((request) => {
     totalcredits +
     "  Total grade points: " +
     totalPoints +
-    "\n" + "\n";
+    "\n" +
+    "\n";
 
-  // ---------------- Sessional GPA -------------------
-//@desc: Gets current year  and checks if it matches school's year term. Adjusted year if neccesary
-//to match school's year term. Depending on website user visits, DPR will have most recent school term
-// from the bootom of the table while yorku grades will have it at the top.
+  // ---------------------------- Sessional GPA ---------------------------
+  //@desc: Gets current year  and checks if it matches school's year term. Adjusted year if neccesary
+  //to match school's year term. Depending on website user visits, DPR will have most recent school term
+  // from the bootom of the table while yorku grades will have it at the top.
   var y = new Date().getFullYear() + "";
   var year = y.substring(2, 4);
 
   if (tdPositionWithGrades === 3) {
-    
-
     var t = tbody.getElementsByTagName("tr")[1];
 
     temp = t.getElementsByTagName("td")[0];
-   
-    if (parseInt(temp.innerHTML.substring(2, 6))< parseInt(  year)) { 
+
+    if (parseInt(temp.innerHTML.substring(2, 6)) < parseInt(year)) {
       var temp2 = "" + (new Date().getFullYear() - 1);
       year = temp2.substring(2, 4);
     }
   }
 
   if (tdPositionWithGrades === 2) {
-    if(TABLE_SIZE-1 > 0){
-   var  t = tbody.getElementsByTagName("tr")[TABLE_SIZE-1];// last tr element
-    temp = t.getElementsByTagName("td")[0];
-    
-    if (parseInt(temp.innerHTML.substring(2, 6)) < parseInt(year)) {
-      var temp2 = "" + (new Date().getFullYear() - 1);
-      year = temp2.substring(2, 4);
+    if (TABLE_SIZE - 1 > 0) {
+      var t = tbody.getElementsByTagName("tr")[TABLE_SIZE - 1]; // last tr element
+      temp = t.getElementsByTagName("td")[0];
+
+      if (parseInt(temp.innerHTML.substring(2, 6)) < parseInt(year)) {
+        var temp2 = "" + (new Date().getFullYear() - 1);
+        year = temp2.substring(2, 4);
+      }
     }
   }
-  }
 
+  var lastYearGrades = [];
+  var lastYearCredits = [];
+  const LAST_YEAR_TERM = "FW" + (parseInt(year) - 1);
 
   const TERM_YEAR = "FW" + year;
   const SUMMER_TERM = "SU" + year;
@@ -255,9 +258,11 @@ chrome.runtime.onMessage.addListener((request) => {
   var FWGrades = [];
   var SUGrades = [];
 
-  var k = 0;//index for Fall/Winter term arrays
+  var k = 0; //index for Fall/Winter term arrays
   var j = 0; //index for Summer term arrays
-  //@desc: stores all courses and grades corresponding to the school term into their respective arrays
+  var m = 0; //index for Last year term
+  //@desc: stores all courses and grades corresponding to the school term into their
+  // respective arrays and last year term if exist
   for (var i = 0; i < courses.length; i++) {
     let term = terms[i];
     temp = courses[i].innerHTML;
@@ -268,7 +273,8 @@ chrome.runtime.onMessage.addListener((request) => {
 
     let gradeLetter = grades[i].innerHTML.substring(0, 2);
     courseText = courseText.replace(/ /g, "");
-    if (term == TERM_YEAR && (gradeLetter != "") & (gradeLetter != null)) {// checks if table element  tr element's innerHtml term matches school term
+    if (term == TERM_YEAR && (gradeLetter != "") & (gradeLetter != null)) {
+      // checks if table element  tr element's innerHtml term matches school term
       FWtermCourseCredits[k] = courseText.substring(
         courseText.length - startPoint,
         courseText.length - endPoint
@@ -285,12 +291,20 @@ chrome.runtime.onMessage.addListener((request) => {
       SUGrades[j] = gradeLetter.replace(/ /g, "");
       j++;
     }
+
+    if (term == LAST_YEAR_TERM && gradeLetter != "" && gradeLetter != null) {
+      lastYearCredits[m] = courseText.substring(
+        courseText.length - startPoint,
+        courseText.length - endPoint
+      );
+      lastYearGrades[m] = gradeLetter.replace(/ /g, "");
+      m++;
+    }
   }
   //@desc: Calculatess FW term sessional GPA
   var FWsessionalGPA = 0;
   var FWsessionalCredits = 0;
   var FWsessionalPoints = 0;
-
 
   for (var i = 0; i < FWGrades.length; i++) {
     var gradeLetter = FWGrades[i];
@@ -316,7 +330,8 @@ chrome.runtime.onMessage.addListener((request) => {
     FWsessionalCredits +
     "  grade points:  " +
     FWsessionalPoints +
-    "\n" + "\n";
+    "\n" +
+    "\n";
 
   //@desc: Calculates SU sessional GPA if any SU courses
 
@@ -347,7 +362,43 @@ chrome.runtime.onMessage.addListener((request) => {
     "  Credits: " +
     SUsessionalCredits +
     "  grade points: " +
-    SUsessionalPoints;
+    SUsessionalPoints +
+    "\n";
 
-  alert(queryGPAState + overallGPAMessage + FWOutput + SUOutput);
+  //@desc: calculates last year term GPA.
+
+  var lastYearGPA = 0;
+  var lastYearTotalCredits = 0;
+  var lastYearPoints = 0;
+
+  for (var i = 0; i < lastYearGrades.length; i++) {
+    var gradeLetter = lastYearGrades[i];
+    var credit = lastYearCredits[i];
+
+    var point = gradeLetterToNumber(gradeLetter);
+    console.log(point);
+    if (point >= 0) {
+      var sum = point * parseInt(credit);
+
+      lastYearPoints += sum;
+      lastYearTotalCredits += parseInt(credit);
+    }
+  }
+  var lastYearOutput = "";
+  if (lastYearCredits != 0) {
+    lastYearGPA = (lastYearPoints / lastYearTotalCredits).toFixed(2);
+    lastYearOutput =
+      "\n" +
+      LAST_YEAR_TERM +
+      " sessional gpa: " +
+      lastYearGPA +
+      "  Credits: " +
+      lastYearTotalCredits +
+      "  grade points: " +
+      lastYearPoints;
+  }
+
+  alert(
+    queryGPAState + overallGPAMessage + FWOutput + SUOutput + lastYearOutput
+  );
 });
