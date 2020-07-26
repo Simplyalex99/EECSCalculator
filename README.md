@@ -22,7 +22,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 -  In the tool bar click on "Window" then "Extensions" (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions").
 
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png" width="300" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png" width="400" height="300">
 
 
 - Toggle "Developer mode" to on 
