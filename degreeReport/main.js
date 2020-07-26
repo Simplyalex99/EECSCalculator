@@ -16,6 +16,19 @@ chrome.runtime.onMessage.addListener((request) => {
   var courses = []; // stores td element with course name not the actual string value
   var grades = []; // stores td element with course grade not the actual string value
   var courseDictionary = new Set(); // stores all unique courses to validate user-input
+  //defining map that converts grade letter to equivalent grade point
+  var gradeDictionary = new Map();
+gradeDictionary.set("A+",9);
+gradeDictionary.set("A",8);
+gradeDictionary.set("B+",7);
+gradeDictionary.set("B",6);
+gradeDictionary.set("C+",5);
+gradeDictionary.set("C",4);
+gradeDictionary.set("D+",3);
+gradeDictionary.set("D",2);
+gradeDictionary.set("E",1);
+gradeDictionary.set("F",0);
+
 
   /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
            Also store all unique courses code (Department and Faculty) in @courseDictionary 
@@ -119,8 +132,10 @@ chrome.runtime.onMessage.addListener((request) => {
         courseName.length - startPoint,
         courseName.length - endPoint
       ); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
-
-      var gradePoint = gradeLetterToNumber(gradeLetter);
+      var gradePoint= -1;
+if(gradeDictionary.has(gradeLetter)){
+gradePoint = gradeDictionary.get(gradeLetter);
+}
 
       if (gradePoint >= 0) {
         gradesAndCourses[count++] =
@@ -153,21 +168,7 @@ chrome.runtime.onMessage.addListener((request) => {
       "\n";
   }
 
-  //@desc: Converts grade letter to equivalent grade point/number according to school's grade system.
-  function gradeLetterToNumber(gradeLetter) {
-    if (gradeLetter === "A+") return 9;
-    else if (gradeLetter === "A") return 8;
-    else if (gradeLetter === "B+") return 7;
-    else if (gradeLetter === "B") return 6;
-    else if (gradeLetter === "C+") return 5;
-    else if (gradeLetter === "C") return 4;
-    else if (gradeLetter === "D+") return 3;
-    else if (gradeLetter === "D") return 2;
-    else if (gradeLetter === "E") return 1;
-    else if (gradeLetter === "F") return 0;
-    //Case if course grade is P or RLF or no grade
-    else return -1;
-  }
+  
 
   //---------------------MAJOR GPA --------------------------
 
@@ -192,12 +193,16 @@ chrome.runtime.onMessage.addListener((request) => {
 
   for (var i = 0; i < all_credits.length; i++) {
     var gradeLetter = all_grades[i];
-    var point = gradeLetterToNumber(gradeLetter);
+    var gradePoint= -1;
+    if(gradeDictionary.has(gradeLetter)){
+    gradePoint = gradeDictionary.get(gradeLetter);
+    }
 
-    if (point >= 0) {
+
+    if (gradePoint >= 0) {
       totalcredits += parseInt(all_credits[i]);
 
-      totalPoints += point * parseInt(all_credits[i]);
+      totalPoints += gradePoint * parseInt(all_credits[i]);
     }
   }
 
@@ -309,9 +314,13 @@ chrome.runtime.onMessage.addListener((request) => {
   for (var i = 0; i < FWGrades.length; i++) {
     var gradeLetter = FWGrades[i];
     var credit = FWtermCourseCredits[i];
-    var point = gradeLetterToNumber(gradeLetter);
-    if (point >= 0) {
-      var sum = point * parseInt(credit);
+    var gradePoint= -1;
+    if(gradeDictionary.has(gradeLetter)){
+    gradePoint = gradeDictionary.get(gradeLetter);
+    }
+   // var point = gradeLetterToNumber(gradeLetter);
+    if (gradePoint >= 0) {
+      var sum = gradePoint * parseInt(credit);
       FWsessionalPoints += sum;
       FWsessionalCredits += parseInt(credit);
     }
@@ -341,9 +350,13 @@ chrome.runtime.onMessage.addListener((request) => {
   for (var i = 0; i < SUGrades.length; i++) {
     var gradeLetter = SUGrades[i];
     var credit = SUtermCourseCredits[i];
-    var point = gradeLetterToNumber(gradeLetter);
-    if (point >= 0) {
-      var sum = point * parseInt(credit);
+ 
+  var gradePoint= -1;
+  if(gradeDictionary.has(gradeLetter)){
+  gradePoint = gradeDictionary.get(gradeLetter);
+  }
+    if (gradePoint >= 0) {
+      var sum = gradePoint * parseInt(credit);
       SUsessionalPoints += sum;
       SUsessionalCredits += parseInt(credit);
     }
@@ -374,10 +387,14 @@ chrome.runtime.onMessage.addListener((request) => {
     var gradeLetter = lastYearGrades[i];
     var credit = lastYearCredits[i];
 
-    var point = gradeLetterToNumber(gradeLetter);
-    console.log(point);
-    if (point >= 0) {
-      var sum = point * parseInt(credit);
+    //var point = gradeLetterToNumber(gradeLetter);
+    var gradePoint= -1;
+    if(gradeDictionary.has(gradeLetter)){
+    gradePoint = gradeDictionary.get(gradeLetter);
+    }
+    
+    if (gradePoint >= 0) {
+      var sum = gradePoint * parseInt(credit);
 
       lastYearPoints += sum;
       lastYearTotalCredits += parseInt(credit);
