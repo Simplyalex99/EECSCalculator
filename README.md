@@ -17,7 +17,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 
 ## Setup
--**Refer to the README.md in github website for visual aid.**
+**Refer to the README.md in github website for visual aid.**
 
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 
