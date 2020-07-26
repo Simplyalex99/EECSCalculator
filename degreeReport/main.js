@@ -329,9 +329,8 @@ chrome.runtime.onMessage.addListener((request) => {
     "  Credits: " +
     FWsessionalCredits +
     "  grade points:  " +
-    FWsessionalPoints +
-    "\n" +
-    "\n";
+    FWsessionalPoints + "\n";
+   
 
   //@desc: Calculates SU sessional GPA if any SU courses
 
