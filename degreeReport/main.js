@@ -68,7 +68,7 @@ gradeDictionary.set("F",0);
 
   var queryGPAState =
     "Sorry. Culminative GPA is not available. Please check spelling.\n" +
-    "(Ex: Enter SC MATH2030  as SC/MATH to get all math gpa).\n";
+    "(Ex: Enter SC MATH2030 3.00 M  as SC/MATH to get all math gpa).\n";
 
   // GLOBAL STATE 1 @startpoint and @endpoint (used code prevent redudant code)
   //@desc: updates the parameters @startPoint & @endPoint's value depending on the course webpage

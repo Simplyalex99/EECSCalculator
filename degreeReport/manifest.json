@@ -1,6 +1,7 @@
 {
-"name": "gpa calculator",
+"name": "Gpa calculator",
 "version": "1.0",
+"description": "Quick launch GPA viewer for Yorku students",
 "manifest_version": 2,
 "content_scripts": [
 {
@@ -10,10 +11,14 @@
 }
 
 ],
+"icons" :{
+"128":"icon.png"
+},
 "browser_action": {
 
     "default_popup": "popup.html",
-    "default_title" : "eecs calculator"
+    "default_title" : "eecs calculator",
+    "default_icon": "icon.png"
     
 }
 
