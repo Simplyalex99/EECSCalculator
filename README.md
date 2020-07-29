@@ -32,7 +32,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
   
 
-- Now click "load unpack" then select the degreereport  folder that you downloaded(IF you do not see it , it might be in Downloads folder or search "degreeReport") then click "select" button
+- Now click "load unpack" then select the EECSCalculator-master  folder then the degreeReport folder that you downloaded(IF you do not see it , it might be in Downloads folder or search "EECSCalculator" once you find it click on it then click degreeReport folder) then click "select" button
 
 
 ![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
