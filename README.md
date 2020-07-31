@@ -13,44 +13,47 @@
 A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1)  
 
 
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/newImage.png" width="300" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/icon/newImage.png" width="300" height="400">
 
 
 ## Setup
 **Refer to the README.md in github website for visual aid.**
 
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step1.png" width="400" height="300">
 
 
 -  In the tool bar click on "Window" then "Extensions" (or click on the 3 vertical dot icon in top right corner next to puzzle icon and click on "More tools" then "Extensions").
 
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step2.png" width="400" height="300">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step2.png" width="400" height="300">
 
 
 - Toggle "Developer mode" to on 
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step3.png)
+![](https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step3.png)
   
 
 - Now click "load unpack" then select the EECSCalculator-master  folder then the degreeReport folder that you downloaded(IF you do not see it , it might be in Downloads folder or search "EECSCalculator" once you find it click on it then click degreeReport folder) then click "select" button
 
 
-![](https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/step4.png)
+![](https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step4.png)
  
 
 
 
 
 
-- Now click on the gpa calculator icon(click on puzzle icon then look for "gpa calculator") and then enter your choice. You can now see your gpa of choice whenever you need to!
+- Now click on the gpa calculator icon(click on puzzle icon then look for "gpa calculator") and then enter your choice.
+ <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step6.png" width="400" height="300">
+
 
   **Note: Must also be on one of the webpages specified in the  description to calculate your choice of gpa**
 
 ## How to use
 For example, choosing yorku degree progress report (DPR) as the website to calculate EECS gpa, still on the page now click on the gpa calculator extension which will display the app. Now entering LE/EECS will give the overall gpa for all eecs courses and sessional and overall gpa. If there is no need to see a certain faculty/department gpa, then simply click submit will show overall and sessional gpa but not the query gpa.
 
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/stepA.png" width="300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep3.png" width="500" height="400">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/stepB.png" width= "300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/steps/demostep4.png" width="500" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/stepA.png" width="300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/demostep3.png" width="500" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/stepB.png" width= "300" height="400"><img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/demostep4.png" width="500" height="400">
 
 
 
