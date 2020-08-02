@@ -36,7 +36,7 @@ window.close();
 });
 /*
 
-First even listener sends user input from input element to content script main.js
+First event listener sends user input from input element to content script main.js
 
 Second event listener re-directs user to grades yorku  website. 
 
