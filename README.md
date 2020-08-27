@@ -10,7 +10,7 @@
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
-A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1)  
+A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1).  
 
 
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/icon/newImage.png" width="300" height="400">
@@ -18,6 +18,10 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 ## Setup
 **Refer to the README.md in github website for visual aid.**
+
+- Download app from Google Chrome store at https://chrome.google.com/webstore/detail/gpa-calculator/lpabmedjkjjjpjmeadnbpbmbklhnbbel?hl=en&authuser=0
+ 
+ OR
 
 - Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step1.png" width="400" height="300">
