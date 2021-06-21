@@ -14,8 +14,9 @@ A **google chrome** extension for yorku students that calculates **culminative**
 
 
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/icon/newImage.png" width="300" height="400">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/stepA.png" width="300". height="400">
-<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/demostep3.png" width="300" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/stepA.png" width="300" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/demostep3.png" width="400" height="400">
+
 ## Setup
 **Refer to the README.md in github website for visual aid.**
 
