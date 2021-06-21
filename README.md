@@ -24,7 +24,7 @@ A **google chrome** extension for yorku students that calculates **culminative**
  
  OR
 
-- Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
+- Continue reading instructions: download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step1.png" width="400" height="300">
 
 
