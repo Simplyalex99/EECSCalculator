@@ -10,16 +10,21 @@
 * [special-thanks](https://github.com/Simplyalex99/EECSCalculator/blob/master/README.md#special-thanks)
 
 ## Description
-A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1)  
+A **google chrome** extension for yorku students that calculates **culminative**  , **sessional** and **overall** gpa of one's query in  the degree progress report(https://w6prod.sis.yorku.ca/yda/student) or york university course grade page(https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1). Sample preview of app:
 
-
+![]() ![]()
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/icon/newImage.png" width="300" height="400">
-
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/stepA.png" width="300" height="400">
+<img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/demo/demostep3.png" width="300" height="400">
 
 ## Setup
 **Refer to the README.md in github website for visual aid.**
 
-- Download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
+- Download app from Google Chrome store at https://chrome.google.com/webstore/detail/gpa-calculator/lpabmedjkjjjpjmeadnbpbmbklhnbbel?hl=en&authuser=0
+ 
+ OR
+
+- Continue reading instructions: download the folder degreeReport with its files. Click on the green "Code" button to download ZIP file.(If you dont see it click here: https://github.com/Simplyalex99/EECSCalculator). 
 <img src="https://github.com/Simplyalex99/EECSCalculator/blob/master/tools/steps/step1.png" width="400" height="300">
 
 
@@ -63,7 +68,7 @@ For example, choosing yorku degree progress report (DPR) as the website to calcu
 Improve structure of code for maintainability and add more life quality improvement in the future.
 
 ## Motivation:
-Currently, there is no way to view eecs gpa or math  or any certain course gpa in either sites provided by York. The only current way to get such grades to see if you meet the requirements for coop, or internship or a certain course is to go to yorku gpa calculator website and manually type in the grade received and credit value. Its not much a problem when its a few courses, but over the years students take lots of courses and having to re-calculate is time-consuming. This extension allows users to calculate their gpa in a click a button of their choice!
+Currently, there is no way to view eecs gpa or math  or any certain course gpa in either sites provided by York. The only current way to get such grades to see if you meet the requirements for coop, or internship or a certain course is to go to yorku gpa calculator website and manually type in the grade received and credit value. Its not much a problem when its a few courses, but over the years students take lots of courses and having to re-calculate is time-consuming. Excel is an alternative option but this extension allows users to calculate their gpa in a click a button of their choice!
 
 ## Important Notice
 
