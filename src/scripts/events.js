@@ -1,5 +1,7 @@
 /*
-@Description: Onclick event sends user input to content script main.js
+@Description: Onclick event sends user input to content script main.js.
+@Note: sendMessage function allows extension and content scripts to share messages
+for reference please visit: https://developer.chrome.com/docs/extensions/mv3/messaging/
 */
 
 document.addEventListener(
@@ -23,7 +25,7 @@ document.addEventListener(
 );
 
 /* 
-@Description: Onclick event redirects user to yorku's grade page 
+@Description: Onclick event redirects user to yorku's grade page  in a new tab
 */
 
 document.addEventListener("DOMContentLoaded", () => {

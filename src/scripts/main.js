@@ -3,18 +3,24 @@ import {
   getIndexWithGrades,
 } from "./helperfunctions/webscrapping.js";
 
+import {
+  setCourses,
+  setGrades,
+  setCourseTerms,
+  setCourseCodeDictionary,
+  getRidOfCharacter,
+  copyCoursesWithCode,
+  copyGrades,
+} from "./helperfunctions/gpa.js";
 export function main() {
   chrome.runtime.onMessage.addListener((request) => {
-    console.log("success");
     var tbody = getHTMLTableWithGrades();
-    console.log(" success " + tbody);
-
-    const TABLE_SIZE = tbody.querySelectorAll("tr").length; // number of tr elements or table rows in table element
-    var tdPositionWithGrades = getIndexWithGrades(tbody); // checks which td element has the grade letter depending if site is DPG or gradesYorku
+    const TABLE_SIZE = tbody.querySelectorAll("tr").length;
+    var tdPositionWithGrades = getIndexWithGrades(tbody);
     var terms = []; // stores td element innerHtml of school term
-    var courses = []; // stores td element with course name not the actual string value
-    var grades = []; // stores td element with course grade not the actual string value
-    var courseDictionary = new Set(); // stores all unique courses to validate user-input
+    var coursesHTML = []; // stores td element with course name not the actual string value
+    var gradesHTML = []; // stores td element with course grade not the actual string value
+    // stores all unique courses to validate user-input
     //defining map that converts grade letter to equivalent grade point
     var gradeDictionary = new Map();
     gradeDictionary.set("A+", 9);
@@ -27,42 +33,20 @@ export function main() {
     gradeDictionary.set("D", 2);
     gradeDictionary.set("E", 1);
     gradeDictionary.set("F", 0);
-
-    /*@desc: copies all courses and their corresponding grade  in @tbody to @courses and @grades array respectively.
-                 Also store all unique courses code (Department and Faculty) in @courseDictionary 
-        */
-
-    //@param: @size is decreased by 1 so as to not include the first element in @tbody array
-    for (var i = 0; i < TABLE_SIZE - 1; i++) {
-      var tr2;
-      tr2 = tbody.getElementsByTagName("tr")[i + 1]; // gets specific tr elementfrom table
-
-      courses[i] = tr2.getElementsByTagName("td")[1]; // gets specific td element with course name from previous tr element
-
-      grades[i] = tr2.getElementsByTagName("td")[tdPositionWithGrades]; // gets td element with grade letter
-      terms[i] = tr2.getElementsByTagName("td")[0].innerHTML;
-      var courseCodeOnly = courses[i].innerHTML
-        .substring(0, 7)
-        .replace(/ /g, "");
-      courseDictionary.add(courseCodeOnly);
-    }
+    coursesHTML = setCourses(tbody, coursesHTML, TABLE_SIZE);
+    gradesHTML = setGrades(tbody, gradesHTML, tdPositionWithGrades, TABLE_SIZE);
+    terms = setCourseTerms(tbody, terms, TABLE_SIZE);
+    var courseDictionary = setCourseCodeDictionary(TABLE_SIZE, coursesHTML);
 
     var course_code_courses = []; // stores all unique courses with @COURSE_CODE
 
     var course_code_grades = []; // stores all unique grades corresponding to course with @COURSE_CODE
-    var index = 0;
     var temp;
     const COURSE_CODE = request.toUpperCase().replace(/ /g, ""); // User response (course gpa to be evaluated)
 
     //@desc: Creates same course code but without "/" character
     //@note: Due to webpage having different course code format, must check for both options for input consistency
-    var temporaryCourseCode = "";
-    for (var i = 0; i < COURSE_CODE.length; i++) {
-      if (COURSE_CODE.charAt(i) != "/") {
-        temporaryCourseCode += COURSE_CODE.charAt(i);
-      }
-    }
-
+    var temporaryCourseCode = getRidOfCharacter(COURSE_CODE, "/");
     var gradesAndCourses = [];
     var count = 0;
 
@@ -78,7 +62,7 @@ export function main() {
     var startPoint = 0;
     var endPoint = 0;
 
-    temp = courses[0].innerHTML;
+    temp = coursesHTML[0].innerHTML;
     var c =
       tdPositionWithGrades === 3
         ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
@@ -104,21 +88,13 @@ export function main() {
           @note: substring is used to only compare the course code then if it is the query course the whole course name gets added.
           */
 
-      for (var i = 0; i < courses.length; i++) {
-        temp = courses[i].innerHTML.substring(0, 7).replace(/ /g, "");
-        var gradeLetter = grades[i].innerHTML;
-        if (temp === COURSE_CODE || temp === temporaryCourseCode) {
-          temp = courses[i].innerHTML;
-          var courseText =
-            tdPositionWithGrades === 3
-              ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
-              : temp; // if site is not DPR then gets rid of &nbsp text
-          course_code_courses[index] = courseText;
-          course_code_grades[index] = gradeLetter.replace(/ /g, ""); // gets rid of all whitespaces
-          index++;
-        }
-      }
-
+      course_code_courses = copyCoursesWithCode(
+        COURSE_CODE,
+        coursesHTML,
+        tdPositionWithGrades,
+        temporaryCourseCode
+      );
+      course_code_grades = copyGrades(gradesHTML);
       var eecsGpa = 0;
       var course_code_total_credits = 0;
       var course_code_GPA = 0;
@@ -173,15 +149,15 @@ export function main() {
     var all_credits = [];
     var all_grades = [];
     //@desc: Copies all grades and credits string value to @all_grades and @all_credits  respectively
-    for (var i = 0; i < courses.length; i++) {
-      let text = courses[i].innerHTML.replace(/ /g, "");
+    for (var i = 0; i < coursesHTML.length; i++) {
+      let text = coursesHTML[i].innerHTML.replace(/ /g, "");
       let credit = text.substring(
         text.length - startPoint,
         text.length - endPoint
       );
       all_credits[i] = credit;
 
-      all_grades[i] = grades[i].innerHTML.replace(/ /g, "");
+      all_grades[i] = gradesHTML[i].innerHTML.replace(/ /g, "");
     }
 
     //@descp: Calculates overall gpa.
@@ -265,15 +241,15 @@ export function main() {
     var m = 0; //index for Last year term
     //@desc: stores all courses and grades corresponding to the school term into their
     // respective arrays and last year term if exist
-    for (var i = 0; i < courses.length; i++) {
+    for (var i = 0; i < coursesHTML.length; i++) {
       let term = terms[i];
-      temp = courses[i].innerHTML;
+      temp = coursesHTML[i].innerHTML;
       var courseText =
         tdPositionWithGrades === 3
           ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
           : temp;
 
-      let gradeLetter = grades[i].innerHTML.substring(0, 2);
+      let gradeLetter = gradesHTML[i].innerHTML.substring(0, 2);
       courseText = courseText.replace(/ /g, "");
       if (term == TERM_YEAR && (gradeLetter != "") & (gradeLetter != null)) {
         // checks if table element  tr element's innerHtml term matches school term
