@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>EECSCalculator</title>
+    <link rel="stylesheet" href="popup.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="title-container">
+      <h2 class="title">YorkU GPA</h2>
+    </div>
+
+    <div class="container">
+      <p>
+        Enter the two letter prefix of course's department followed by "/" and
+        faculty name to get culminative GPA. Or leave blank.
+      </p>
+      <div class="input-container">
+        <input
+          type="text"
+          id="user"
+          placeholder="(e.g  SC/MATH)"
+          class="input"
+        />
+      </div>
+
+      <div class="btn-container">
+        <button type="submit" class="submit-btn">View GPA</button>
+      </div>
+      <div class="btn-container">
+        <button type="submit" class="redirect-btn" id="redirect-btn">
+          Go to grades
+        </button>
+      </div>
+      <p class="footnote">
+        Note: Must be on York university DegreeProgressReport or grades page
+        when using extension
+      </p>
+    </div>
+    <script src="events.js"></script>
+    <script type="module" src="./helperfunctions/gpa.js"></script>
+    <script type="module" src="./helperfunctions/webscrapping.js"></script>
+  </body>
+</html>
