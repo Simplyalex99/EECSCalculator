@@ -9,20 +9,20 @@
         "https://wrem.sis.yorku.ca/Apps/WebObjects/ydml.woa/wa/DirectAction/document?name=CourseListv1",
         "https://w6prod.sis.yorku.ca/yda/student"
       ],
-      "js": ["content.js"]
+      "js": ["scripts/content.js"]
     }
   ],
   "web_accessible_resources": [
-    "main.js",
-    "helperfunctions/gpa.js",
-    "helperfunctions/webscrapping.js"
+    "scripts/main.js",
+    "scripts/helperfunctions/gpa.js",
+    "scripts/helperfunctions/webscrapping.js"
   ],
   "icons": {
-    "128": "icon.png"
+    "128": "/icons/icon.png"
   },
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "eecs calculator",
-    "default_icon": "icon.png"
+    "default_icon": "/icons/icon.png"
   }
 }
