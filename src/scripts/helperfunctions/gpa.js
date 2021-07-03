@@ -82,14 +82,14 @@ export function copyCoursesWithCode(
   let courses_with_code = [];
   let index = 0;
   for (let i = 0; i < coursesHTML.length; i++) {
-    temp = coursesHTML[i].innerHTML.substring(0, 7).replace(/ /g, "");
+    let temp = coursesHTML[i].innerHTML.substring(0, 7).replace(/ /g, "");
     if (temp === course_code || temp === temporaryCourseCode) {
       temp = coursesHTML[i].innerHTML;
       let courseText =
         tdPositionWithGrades === 3
           ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
           : temp; // if site is not DPR then gets rid of &nbsp text
-      course_code_courses[index] = courseText;
+      courses_with_code[index] = courseText;
       index++;
     }
   }
@@ -104,6 +104,7 @@ export function copyCoursesWithCode(
 
 export function copyGrades(gradesHTML) {
   let grades_copy = [];
+  let index = 0;
   for (let i = 0; i < gradesHTML.length; i++) {
     let gradeLetter = gradesHTML[i].innerHTML;
     grades_copy[index] = gradeLetter.replace(/ /g, "");
@@ -131,4 +132,95 @@ export function getRidOfCharacter(course_code, special_character) {
   return temporaryCourseCode;
 }
 
-export function calculateQueryGPA() {}
+/*
+@Description: Calculates the query gpa of user  choice using the formula:
+ (Summation(credit[i] * gradeLetter numerical value[i] )) / total credits
+
+@Returns: an object containing information about query : query gpa, total grade points and total credits.
+
+@Params: @gradeDictionary  a Set containning unique grade letters and their value,
+@course_code_courses array containing the course name and credit value matching user input, and @course_code_grades
+containning the grade letters respectively and is matching the user input.
+@creditConstraint containning the valid start and endpoint for credit value in @course_code_courses
+*/
+
+export function calculateQueryGPA(
+  gradeDictionary,
+  course_code_courses,
+  course_code_grades,
+  creditConstraint
+) {
+  const query = {
+    course_code_total_grade_points: 0,
+    course_code_total_credits: 0,
+    course_code_GPA: 0,
+  };
+  let { startPoint, endPoint } = creditConstraint;
+
+  let { course_code_total_grade_points, course_code_total_credits } = query;
+  for (let i = 0; i < course_code_courses.length; i++) {
+    let courseName = course_code_courses[i].replace(/ /g, "");
+    let gradeLetter = course_code_grades[i];
+
+    let courseCredit = courseName.substring(
+      courseName.length - startPoint,
+      courseName.length - endPoint
+    ); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
+    let gradePoint = -1;
+    if (gradeDictionary.has(gradeLetter)) {
+      gradePoint = gradeDictionary.get(gradeLetter);
+    }
+
+    if (gradePoint >= 0) {
+      let creditValue = parseInt(courseCredit);
+      let result = gradePoint * creditValue;
+      course_code_total_grade_points += result;
+      course_code_total_credits += creditValue;
+    }
+  }
+
+  //@desc:sets @eecsGPA to 0 if no credit values read to prevent NaN output
+  if (course_code_total_credits == 0) query.course_code_GPA = 0;
+  else {
+    query.course_code_GPA = (
+      course_code_total_grade_points / course_code_total_credits
+    ).toFixed(2);
+  }
+
+  return query;
+}
+
+/*
+@Description: copys the grades and course  names from @course_code_grades and @course_code_courses that do not contain 
+an empty value or pass grade letter.
+
+@Returns: an array containning the grade letters and courses without an invalid value.
+
+@Params: @gradeDictionary  a Set containning unique grade letters and their value,
+@course_code_courses array containing the course name and credit value matching user input, and @course_code_grades
+containning the grade letters respectively and is matching the user input.
+
+@Note: A pass grade letter p does  not get included in calculation and so do not get displayed.
+*/
+
+export function copyGradesAndCourses(
+  gradeDictionary,
+  course_code_courses,
+  course_code_grades
+) {
+  let count = 0;
+  let gradesAndCourses = [];
+  for (let i = 0; i < course_code_courses.length; i++) {
+    let gradeLetter = course_code_grades[i];
+    let gradePoint = -1;
+    if (gradeDictionary.has(gradeLetter)) {
+      gradePoint = gradeDictionary.get(gradeLetter);
+    }
+
+    if (gradePoint >= 0) {
+      gradesAndCourses[count++] =
+        course_code_courses[i] + " grade: " + course_code_grades[i] + " ";
+    }
+  }
+  return gradesAndCourses;
+}

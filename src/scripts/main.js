@@ -11,6 +11,8 @@ import {
   getRidOfCharacter,
   copyCoursesWithCode,
   copyGrades,
+  copyGradesAndCourses,
+  calculateQueryGPA,
 } from "./helperfunctions/gpa.js";
 export function main() {
   chrome.runtime.onMessage.addListener((request) => {
@@ -95,40 +97,25 @@ export function main() {
         temporaryCourseCode
       );
       course_code_grades = copyGrades(gradesHTML);
-      var eecsGpa = 0;
-      var course_code_total_credits = 0;
-      var course_code_GPA = 0;
 
-      //@desc: Calculates user's choice of gpa
-      for (var i = 0; i < course_code_courses.length; i++) {
-        var courseName = course_code_courses[i].replace(/ /g, ""); // gets rid of all white spaces
-        var gradeLetter = course_code_grades[i];
-
-        var courseCredit = courseName.substring(
-          courseName.length - startPoint,
-          courseName.length - endPoint
-        ); //grabs the digit of the credit from courseName ex: 3.00 from LE/EECSXXXX3.00
-        var gradePoint = -1;
-        if (gradeDictionary.has(gradeLetter)) {
-          gradePoint = gradeDictionary.get(gradeLetter);
-        }
-
-        if (gradePoint >= 0) {
-          gradesAndCourses[count++] =
-            course_code_courses[i] + " grade: " + course_code_grades[i] + " ";
-          var creditValue = parseInt(courseCredit);
-          var result = gradePoint * creditValue;
-          eecsGpa += result;
-          course_code_total_credits += creditValue;
-        }
-      }
-
-      //@desc:sets @eecsGPA to 0 if no credit values read to prevent NaN output
-      if (course_code_total_credits == 0) course_code_GPA = 0;
-      else {
-        course_code_GPA = (eecsGpa / course_code_total_credits).toFixed(2); // formula to calculate gpa
-      }
-
+      let creditConstraint = { startPoint, endPoint };
+      let query = calculateQueryGPA(
+        gradeDictionary,
+        course_code_courses,
+        course_code_grades,
+        creditConstraint
+      );
+      /*  stores copy of all courses matching user input so as to display them: 
+        gradesAndCourses = copyGradesAndCourses(
+        gradeDictionary,
+        course_code_courses,
+        course_code_grades
+      );  */
+      let {
+        course_code_GPA,
+        course_code_total_credits,
+        course_code_total_grade_points,
+      } = query;
       queryGPAState =
         COURSE_CODE +
         " gpa: " +
@@ -140,7 +127,7 @@ export function main() {
         " " +
         COURSE_CODE +
         " grade points: " +
-        eecsGpa +
+        course_code_total_grade_points +
         "\n";
     }
 
