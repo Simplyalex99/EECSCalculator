@@ -11,8 +11,9 @@ import {
   getRidOfCharacter,
   copyCoursesWithCode,
   copyGrades,
-  copyGradesAndCourses,
+  copyCredits,
   calculateQueryGPA,
+  calculateGPA,
 } from "./helperfunctions/gpa.js";
 export function main() {
   chrome.runtime.onMessage.addListener((request) => {
@@ -49,9 +50,6 @@ export function main() {
     //@desc: Creates same course code but without "/" character
     //@note: Due to webpage having different course code format, must check for both options for input consistency
     var temporaryCourseCode = getRidOfCharacter(COURSE_CODE, "/");
-    var gradesAndCourses = [];
-    var count = 0;
-
     var queryGPAState =
       "Sorry. Culminative GPA is not available. Please check spelling.\n" +
       "(Ex: Enter SC MATH2030 3.00 M  as SC/MATH to get all math gpa).\n";
@@ -78,17 +76,14 @@ export function main() {
       startPoint = 4;
       endPoint = 0;
     }
-    // END OF GLOBAL STATE 1
-    //@desc: Validates if user's response is an actual course that they have in their schedule
+
+    var creditConstraint = { startPoint, endPoint };
+    //validates if valid user input
     if (
       courseDictionary.has(COURSE_CODE) ||
       courseDictionary.has(temporaryCourseCode)
     ) {
       // -------------------------QUERY GPA-----------------------------------
-      /*@desc: Copies all elements in td array that have the course code @COURSE_CODE to @course_code_courses array
-          and  adds its  corresponding grade letter  to @course_code_grades array.
-          @note: substring is used to only compare the course code then if it is the query course the whole course name gets added.
-          */
 
       course_code_courses = copyCoursesWithCode(
         COURSE_CODE,
@@ -98,19 +93,13 @@ export function main() {
       );
       course_code_grades = copyGrades(gradesHTML);
 
-      let creditConstraint = { startPoint, endPoint };
       let query = calculateQueryGPA(
         gradeDictionary,
         course_code_courses,
         course_code_grades,
         creditConstraint
       );
-      /*  stores copy of all courses matching user input so as to display them: 
-        gradesAndCourses = copyGradesAndCourses(
-        gradeDictionary,
-        course_code_courses,
-        course_code_grades
-      );  */
+
       let {
         course_code_GPA,
         course_code_total_credits,
@@ -133,52 +122,22 @@ export function main() {
 
     //---------------------MAJOR GPA --------------------------
 
-    var all_credits = [];
-    var all_grades = [];
+    var all_credits = copyCredits(coursesHTML, creditConstraint);
+    var all_grades = copyGrades(gradesHTML);
     //@desc: Copies all grades and credits string value to @all_grades and @all_credits  respectively
-    for (var i = 0; i < coursesHTML.length; i++) {
-      let text = coursesHTML[i].innerHTML.replace(/ /g, "");
-      let credit = text.substring(
-        text.length - startPoint,
-        text.length - endPoint
-      );
-      all_credits[i] = credit;
-
-      all_grades[i] = gradesHTML[i].innerHTML.replace(/ /g, "");
-    }
 
     //@descp: Calculates overall gpa.
-    var overallGPA = 0;
-    var totalcredits = 0;
-    var totalPoints = 0;
 
-    for (var i = 0; i < all_credits.length; i++) {
-      var gradeLetter = all_grades[i];
-      var gradePoint = -1;
-      if (gradeDictionary.has(gradeLetter)) {
-        gradePoint = gradeDictionary.get(gradeLetter);
-      }
+    let gpaResult = calculateGPA(gradeDictionary, all_credits, all_grades);
 
-      if (gradePoint >= 0) {
-        totalcredits += parseInt(all_credits[i]);
-
-        totalPoints += gradePoint * parseInt(all_credits[i]);
-      }
-    }
-
-    //@desc:sets @overallGPA to 0 if no credit values read to prevent NaN output
-    if (totalcredits === 0) overallGPA = 0;
-    else {
-      overallGPA = (totalPoints / totalcredits).toFixed(2);
-    }
-
+    let { gpa, totalCredits, totalGradePoints } = gpaResult;
     var overallGPAMessage =
       "\nOverall GPA: " +
-      overallGPA +
+      gpa +
       "  Total credits: " +
-      totalcredits +
+      totalCredits +
       "  Total grade points: " +
-      totalPoints +
+      totalGradePoints +
       "\n" +
       "\n";
 

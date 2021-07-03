@@ -113,6 +113,21 @@ export function copyGrades(gradesHTML) {
   return grades_copy;
 }
 
+export function copyCredits(coursesHTML, creditConstraint) {
+  let credits = [];
+  let { startPoint, endPoint } = creditConstraint;
+  for (var i = 0; i < coursesHTML.length; i++) {
+    let text = coursesHTML[i].innerHTML.replace(/ /g, "");
+    let credit = text.substring(
+      text.length - startPoint,
+      text.length - endPoint
+    );
+    credits[i] = credit;
+  }
+
+  return credits;
+}
+
 /*
 
 
@@ -157,7 +172,6 @@ export function calculateQueryGPA(
   };
   let { startPoint, endPoint } = creditConstraint;
 
-  let { course_code_total_grade_points, course_code_total_credits } = query;
   for (let i = 0; i < course_code_courses.length; i++) {
     let courseName = course_code_courses[i].replace(/ /g, "");
     let gradeLetter = course_code_grades[i];
@@ -174,20 +188,51 @@ export function calculateQueryGPA(
     if (gradePoint >= 0) {
       let creditValue = parseInt(courseCredit);
       let result = gradePoint * creditValue;
-      course_code_total_grade_points += result;
-      course_code_total_credits += creditValue;
+      query.course_code_total_grade_points += result;
+      query.course_code_total_credits += creditValue;
     }
   }
 
   //@desc:sets @eecsGPA to 0 if no credit values read to prevent NaN output
+  let { course_code_total_credits, course_code_total_grade_points } = query;
   if (course_code_total_credits == 0) query.course_code_GPA = 0;
   else {
     query.course_code_GPA = (
       course_code_total_grade_points / course_code_total_credits
     ).toFixed(2);
   }
-
+  console.log(" gp " + course_code_total_grade_points);
   return query;
+}
+
+export function calculateGPA(gradeDictionary, credits, grades) {
+  let gpaObject = {
+    gpa: 0,
+    totalCredits: 0,
+    totalGradePoints: 0,
+  };
+
+  for (let i = 0; i < credits.length; i++) {
+    let gradeLetter = grades[i];
+    let gradePoint = -1;
+    if (gradeDictionary.has(gradeLetter)) {
+      gradePoint = gradeDictionary.get(gradeLetter);
+    }
+
+    if (gradePoint >= 0) {
+      gpaObject.totalCredits += parseInt(credits[i]);
+      gpaObject.totalGradePoints += gradePoint * parseInt(credits[i]);
+    }
+  }
+
+  let { totalCredits, totalGradePoints } = gpaObject;
+
+  if (totalCredits == 0) gpaObject.gpa = 0;
+  else {
+    gpaObject.gpa = (totalGradePoints / totalCredits).toFixed(2);
+  }
+
+  return gpaObject;
 }
 
 /*
@@ -201,6 +246,7 @@ an empty value or pass grade letter.
 containning the grade letters respectively and is matching the user input.
 
 @Note: A pass grade letter p does  not get included in calculation and so do not get displayed.
+In addition, this function currently is not in use, implemented for later use maybe.
 */
 
 export function copyGradesAndCourses(
