@@ -270,3 +270,46 @@ export function copyGradesAndCourses(
   }
   return gradesAndCourses;
 }
+export function copyTermCredits(
+  coursesHTML,
+  terms,
+  termTarget,
+  creditConstraint,
+  tdPositionWithGrades
+) {
+  let termTargetCredits = [];
+  let k = 0;
+  let { startPoint, endPoint } = creditConstraint;
+  for (let i = 0; i < coursesHTML.length; i++) {
+    let term = terms[i];
+    let temp = coursesHTML[i].innerHTML;
+    let courseText =
+      tdPositionWithGrades === 3
+        ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
+        : temp;
+    courseText = courseText.replace(/ /g, "");
+    if (term == termTarget) {
+      termTargetCredits[k] = courseText.substring(
+        courseText.length - startPoint,
+        courseText.length - endPoint
+      );
+      k++;
+    }
+  }
+
+  return termTargetCredits;
+}
+
+export function copyTermGrades(gradesHTML, termTarget, terms) {
+  let termGrades = [];
+  let k = 0;
+  for (var i = 0; i < gradesHTML.length; i++) {
+    let term = terms[i];
+    let gradeLetter = gradesHTML[i].innerHTML.substring(0, 2);
+    if (term == termTarget && (gradeLetter != "") & (gradeLetter != null)) {
+      termGrades[k] = gradeLetter.replace(/ /g, "");
+      k++;
+    }
+  }
+  return termGrades;
+}

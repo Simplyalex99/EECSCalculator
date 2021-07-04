@@ -14,6 +14,8 @@ import {
   copyCredits,
   calculateQueryGPA,
   calculateGPA,
+  copyTermCredits,
+  copyTermGrades,
 } from "./helperfunctions/gpa.js";
 export function main() {
   chrome.runtime.onMessage.addListener((request) => {
@@ -171,87 +173,49 @@ export function main() {
       }
     }
 
-    var lastYearGrades = [];
-    var lastYearCredits = [];
     const LAST_YEAR_TERM = "FW" + (parseInt(year) - 1);
 
-    const TERM_YEAR = "FW" + year;
+    const FW_TERM_YEAR = "FW" + year;
     const SUMMER_TERM = "SU" + year;
-    var FWtermCourseCredits = [];
-    var SUtermCourseCredits = [];
-    var FWGrades = [];
-    var SUGrades = [];
+    var FWtermCourseCredits = copyTermCredits(
+      coursesHTML,
+      terms,
+      FW_TERM_YEAR,
+      creditConstraint,
+      tdPositionWithGrades
+    );
+    var SUtermCourseCredits = copyTermCredits(
+      coursesHTML,
+      terms,
+      SUMMER_TERM,
+      creditConstraint,
+      tdPositionWithGrades
+    );
+    var lastYearCredits = copyTermCredits(
+      coursesHTML,
+      terms,
+      LAST_YEAR_TERM,
+      creditConstraint,
+      tdPositionWithGrades
+    );
+    var FWGrades = copyTermGrades(gradesHTML, FW_TERM_YEAR, terms);
+    var SUGrades = copyTermGrades(gradesHTML, SUMMER_TERM, terms);
+    var lastYearGrades = copyTermGrades(gradesHTML, LAST_YEAR_TERM, terms);
 
-    var k = 0; //index for Fall/Winter term arrays
-    var j = 0; //index for Summer term arrays
-    var m = 0; //index for Last year term
-    //@desc: stores all courses and grades corresponding to the school term into their
-    // respective arrays and last year term if exist
-    for (var i = 0; i < coursesHTML.length; i++) {
-      let term = terms[i];
-      temp = coursesHTML[i].innerHTML;
-      var courseText =
-        tdPositionWithGrades === 3
-          ? temp.substring(0, 12) + " " + temp.substring(19, temp.length)
-          : temp;
-
-      let gradeLetter = gradesHTML[i].innerHTML.substring(0, 2);
-      courseText = courseText.replace(/ /g, "");
-      if (term == TERM_YEAR && (gradeLetter != "") & (gradeLetter != null)) {
-        // checks if table element  tr element's innerHtml term matches school term
-        FWtermCourseCredits[k] = courseText.substring(
-          courseText.length - startPoint,
-          courseText.length - endPoint
-        );
-        FWGrades[k] = gradeLetter.replace(/ /g, "");
-
-        k++;
-      }
-      if (term == SUMMER_TERM && (gradeLetter != "") & (gradeLetter != null)) {
-        SUtermCourseCredits[j] = courseText.substring(
-          courseText.length - startPoint,
-          courseText.length - endPoint
-        );
-        SUGrades[j] = gradeLetter.replace(/ /g, "");
-        j++;
-      }
-
-      if (term == LAST_YEAR_TERM && gradeLetter != "" && gradeLetter != null) {
-        lastYearCredits[m] = courseText.substring(
-          courseText.length - startPoint,
-          courseText.length - endPoint
-        );
-        lastYearGrades[m] = gradeLetter.replace(/ /g, "");
-        m++;
-      }
-    }
     //@desc: Calculatess FW term sessional GPA
-    var FWsessionalGPA = 0;
-    var FWsessionalCredits = 0;
-    var FWsessionalPoints = 0;
 
-    for (var i = 0; i < FWGrades.length; i++) {
-      var gradeLetter = FWGrades[i];
-      var credit = FWtermCourseCredits[i];
-      var gradePoint = -1;
-      if (gradeDictionary.has(gradeLetter)) {
-        gradePoint = gradeDictionary.get(gradeLetter);
-      }
-      // var point = gradeLetterToNumber(gradeLetter);
-      if (gradePoint >= 0) {
-        var sum = gradePoint * parseInt(credit);
-        FWsessionalPoints += sum;
-        FWsessionalCredits += parseInt(credit);
-      }
-    }
-    if (FWsessionalCredits == 0) {
-      FWsessionalGPA = 0;
-    } else {
-      FWsessionalGPA = (FWsessionalPoints / FWsessionalCredits).toFixed(2);
-    }
+    let gpaFWTermResult = calculateGPA(
+      gradeDictionary,
+      FWtermCourseCredits,
+      FWGrades
+    );
+
+    var FWsessionalGPA = gpaFWTermResult.gpa;
+    var FWsessionalCredits = gpaFWTermResult.totalCredits;
+    var FWsessionalPoints = gpaFWTermResult.totalGradePoints;
 
     var FWOutput =
-      TERM_YEAR +
+      FW_TERM_YEAR +
       " sessional gpa: " +
       FWsessionalGPA +
       "  Credits: " +
@@ -261,30 +225,14 @@ export function main() {
       "\n";
 
     //@desc: Calculates SU sessional GPA if any SU courses
-
-    var SUsessionalGPA = 0;
-    var SUsessionalCredits = 0;
-    var SUsessionalPoints = 0;
-
-    for (var i = 0; i < SUGrades.length; i++) {
-      var gradeLetter = SUGrades[i];
-      var credit = SUtermCourseCredits[i];
-
-      var gradePoint = -1;
-      if (gradeDictionary.has(gradeLetter)) {
-        gradePoint = gradeDictionary.get(gradeLetter);
-      }
-      if (gradePoint >= 0) {
-        var sum = gradePoint * parseInt(credit);
-        SUsessionalPoints += sum;
-        SUsessionalCredits += parseInt(credit);
-      }
-    }
-    if (SUsessionalCredits == 0) {
-      SUsessionalGPA = 0;
-    } else {
-      SUsessionalGPA = (SUsessionalPoints / SUsessionalCredits).toFixed(2);
-    }
+    let gpaSUTermResult = calculateGPA(
+      gradeDictionary,
+      SUtermCourseCredits,
+      SUGrades
+    );
+    var SUsessionalGPA = gpaSUTermResult.gpa;
+    var SUsessionalCredits = gpaSUTermResult.totalCredits;
+    var SUsessionalPoints = gpaSUTermResult.totalGradePoints;
 
     var SUOutput =
       SUMMER_TERM +
@@ -298,43 +246,30 @@ export function main() {
 
     //@desc: calculates last year term GPA.
 
-    var lastYearGPA = 0;
-    var lastYearTotalCredits = 0;
-    var lastYearPoints = 0;
+    let gpaLastYearResult = calculateGPA(
+      gradeDictionary,
+      lastYearCredits,
+      lastYearGrades
+    );
 
-    for (var i = 0; i < lastYearGrades.length; i++) {
-      var gradeLetter = lastYearGrades[i];
-      var credit = lastYearCredits[i];
+    var lastYearGPA = gpaLastYearResult.gpa;
+    var lastYearTotalCredits = gpaLastYearResult.totalCredits;
+    var lastYearPoints = gpaLastYearResult.totalGradePoints;
 
-      //var point = gradeLetterToNumber(gradeLetter);
-      var gradePoint = -1;
-      if (gradeDictionary.has(gradeLetter)) {
-        gradePoint = gradeDictionary.get(gradeLetter);
-      }
-
-      if (gradePoint >= 0) {
-        var sum = gradePoint * parseInt(credit);
-
-        lastYearPoints += sum;
-        lastYearTotalCredits += parseInt(credit);
-      }
-    }
     var lastYearOutput = "";
-    if (lastYearCredits != 0) {
-      lastYearGPA = (lastYearPoints / lastYearTotalCredits).toFixed(2);
-      lastYearOutput =
-        "\n" +
-        LAST_YEAR_TERM +
-        " sessional gpa: " +
-        lastYearGPA +
-        "  Credits: " +
-        lastYearTotalCredits +
-        "  grade points: " +
-        lastYearPoints;
-    }
+    lastYearOutput =
+      "\n" +
+      LAST_YEAR_TERM +
+      " sessional gpa: " +
+      lastYearGPA +
+      "  Credits: " +
+      lastYearTotalCredits +
+      "  grade points: " +
+      lastYearPoints;
 
     alert(
       queryGPAState + overallGPAMessage + FWOutput + SUOutput + lastYearOutput
     );
   });
 }
+//NAN result for last year
